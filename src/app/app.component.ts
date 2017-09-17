@@ -7,11 +7,16 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
   ngOnInit(): void {
     this.initializeTheme();
   }
 
   private initializeTheme() {
     $('.modal').modal();
+    $('.button-collapse').sideNav({
+      closeOnClick: true,
+      draggable: true,
+    });
   }
 }
