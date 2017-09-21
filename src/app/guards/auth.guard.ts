@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import { AuthService } from './../shared/services/auth.service';
 
 @Injectable()
-export class AuthGuard implements CanActivate, CanLoad {
+export class AuthGuard implements CanActivate { // , CanLoad {
 
   constructor(private authService: AuthService) {
 
@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.authService.isLoggedIn();
   }
 
-  canLoad(): boolean {
-    return true;
-  }
+  // canLoad(): boolean {
+  //   return true;
+  // }
 }

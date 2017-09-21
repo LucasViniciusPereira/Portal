@@ -3,11 +3,10 @@ import { NgModule, Component } from '@angular/core';
 
 import { AuthGuard } from './../../guards/auth.guard';
 import { IndexComponent } from './index/index.component';
-import { LoginComponent } from './login/login.component';
 
 export const HomeRoutesApp = [
-   { path: 'index', Component: IndexComponent, canActivate: [AuthGuard] },
-   { path: 'login', component: LoginComponent } // No Authentication
+  { path: '', redirectTo: '/index' , pathMatch: 'full' },
+  { path: 'index', Component: IndexComponent } //, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

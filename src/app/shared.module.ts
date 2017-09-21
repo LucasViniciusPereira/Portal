@@ -9,12 +9,12 @@ import { HomeModule } from './areas/home/home.module';
   imports: [
     CommonModule,
     RouterModule,
-    HomeModule
+    // HomeModule
   ],
   exports: [
     MenuComponent,
     RouterModule,
-    HomeModule
+    // HomeModule
   ],
   declarations: [MenuComponent]
 })

@@ -1,8 +1,8 @@
+// import { AuthService } from './../../shared/services/auth.service';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+//import { CommonModule } from '@angular/common';
 
 // Components
-import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 
 // Modules
@@ -10,9 +10,12 @@ import { HomeRoutes } from './home.routes';
 
 @NgModule({
   imports: [
-    CommonModule,
+    //CommonModule,
     HomeRoutes
   ],
-  declarations: [LoginComponent, IndexComponent]
+  // providers: [
+  //   AuthService
+  // ],
+  declarations: [IndexComponent]
 })
 export class HomeModule { }
