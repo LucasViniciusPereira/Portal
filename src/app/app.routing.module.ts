@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const appRoutes: Routes = [
-  { path: 'home', loadChildren: './app/areas/home/home.module#HomeModule'},
+  { path: 'home', loadChildren: 'app/areas/home/home.module#HomeModule'},
   // { path: 'login', component: LoginComponent },
   // {
   //   path: 'home', component: IndexComponent,
