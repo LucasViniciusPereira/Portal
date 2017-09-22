@@ -7,7 +7,7 @@ import { LoginComponent } from './areas/home/login/login.component';
 import { SiteComponent } from './site/site.component';
 
 const appRoutes: Routes = [
-  { path: 'home', loadChildren: 'app/areas/home/home.module#HomeModule' }, // , canActivate: [AuthGuard] },
+  { path: 'home', loadChildren: 'app/areas/home/home.module#HomeModule', canActivate: [AuthGuard] },
   { path: 'index', component: SiteComponent },
   { path: 'login', component: LoginComponent },
   // { path: '**', component: NotFoundComponent } // canActivate: [AuthGuard]}

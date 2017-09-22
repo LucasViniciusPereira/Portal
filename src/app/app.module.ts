@@ -1,12 +1,18 @@
-import { AuthService } from './shared/services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
+// Modules
 import { SharedModule } from './shared.module';
 import { AppRoutingModule } from './app.routing.module';
+
+// Components
 import { SiteComponent } from './site/site.component';
 import { LoginComponent } from './areas/home/login/login.component';
+
+// Providers
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +26,8 @@ import { LoginComponent } from './areas/home/login/login.component';
     AppRoutingModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

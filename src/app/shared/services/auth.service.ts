@@ -7,6 +7,6 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     // Implementar: Busca autenticação do usuário
-    return true;
+    return false;
   }
 }

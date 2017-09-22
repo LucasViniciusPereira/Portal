@@ -1,22 +1,30 @@
 
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad } from '@angular/router';
+import { CanActivate, CanLoad, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-// import { AuthService } from './../shared/services/auth.service';
+import { AuthService } from './../shared/services/auth.service';
 
 @Injectable()
-export class AuthGuard  { // implements CanActivate { // , CanLoad {
+export class AuthGuard implements CanActivate, CanLoad {
 
-  // constructor(private authService: AuthService) {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
 
-  // }
+  }
 
-  // canActivate(): Observable<boolean> | boolean {
-  //   return this.authService.isLoggedIn();
-  // }
+  canActivate(): Observable<boolean> | boolean {
+    const isLogged = this.authService.isLoggedIn();
+    if (isLogged === true) {
+      return this.authService.isLoggedIn();
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 
-  // canLoad(): boolean {
-  //   return true;
-  // }
+  canLoad(): boolean {
+    return true;
+  }
 }
