@@ -1,3 +1,4 @@
+// import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -8,8 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(
-  ) { }
+  // constructor(
+  //   // private router: Router
+  // ) { }
 
   ngOnInit() {
 
