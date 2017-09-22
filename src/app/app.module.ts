@@ -7,7 +7,7 @@ import { SharedModule } from './shared.module';
 import { AppRoutingModule } from './app.routing.module';
 
 // Components
-import { SiteComponent } from './site/site.component';
+import { SiteComponent } from './components/site/site.component';
 import { LoginComponent } from './areas/home/login/login.component';
 
 // Providers
