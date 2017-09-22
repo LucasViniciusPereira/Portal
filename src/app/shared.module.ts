@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from './shared/components/menu/menu.component';
-import { NotfoundComponent } from './shared/components/notfound/notfound.component';
+import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
+import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 
 @NgModule({
   imports: [
@@ -10,6 +11,6 @@ import { NotfoundComponent } from './shared/components/notfound/notfound.compone
   exports: [
     MenuComponent,
   ],
-  declarations: [MenuComponent, NotfoundComponent]
+  declarations: [MenuComponent, NotfoundComponent, ForbiddenComponent]
 })
 export class SharedModule { }
