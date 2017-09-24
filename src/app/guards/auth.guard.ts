@@ -16,12 +16,13 @@ export class AuthGuard implements CanActivate, CanLoad {
   }
 
   canActivate(): Observable<boolean> | boolean {
-    const isLogged = this.authService.isLoggedIn();
-    if (isLogged === true) {
-      return this.authService.isLoggedIn();
-    } else {
-      this.router.navigate(['/forbidden']);
-    }
+    return true;
+    // const isLogged = this.authService.isLoggedIn();
+    // if (isLogged === true) {
+    //   return this.authService.isLoggedIn();
+    // } else {
+    //   this.router.navigate(['/forbidden']);
+    // }
   }
 
   canLoad(): boolean {

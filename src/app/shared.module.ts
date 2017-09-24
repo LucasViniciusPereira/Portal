@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './shared/components/menu/menu.component';
+import { Routes, RouterModule } from '@angular/router';
+
 import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
+import { BaseComponent } from './layouts/base/base.component';
+import { MasterpageComponent } from './layouts/master-page/masterpage.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule
   ],
-  exports: [
-    MenuComponent,
-  ],
-  declarations: [MenuComponent, NotfoundComponent, ForbiddenComponent]
+  declarations: [
+    NotfoundComponent,
+    ForbiddenComponent,
+    BaseComponent,
+    MasterpageComponent
+  ]
 })
+
 export class SharedModule { }
