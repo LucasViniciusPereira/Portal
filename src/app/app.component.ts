@@ -15,9 +15,6 @@ export class AppComponent implements OnInit {
 
   private initializeTheme() {
     $('.modal').modal();
-    $('.button-collapse').sideNav({
-      closeOnClick: true,
-      draggable: true,
-    });
+
   }
 }
