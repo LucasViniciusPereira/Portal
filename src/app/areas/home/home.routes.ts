@@ -7,7 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { IndexComponent } from './index/index.component';
 
 const HomeRoutesApp: Routes = [
-  { path: '', redirectTo: '/home/index' , pathMatch: 'full' },
+  { path: '', redirectTo: '/home/index'},
   { path: 'index', component: IndexComponent }, // , canActivate: [AuthGuard] },
   { path: 'contato', component: ContactComponent } // , canActivate: [AuthGuard] },
 ];

@@ -1,5 +1,43 @@
-<p>
-  masterpage works!
-</p>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" data-activates="slide-out" class="button-collapse" style="display: block;">
+      <i class="material-icons">menu</i>
+    </a>
+
+    <ul id="slide-out" class="side-nav">
+      <li>
+        <div class="user-view">
+          <div class="background">
+            <img src="http://materializecss.com/images/office.jpg">
+          </div>
+          <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+          <a href="#!name"><span class="white-text name">Usuário</span></a>
+          <a href="#!email"><span class="white-text email">E-mail</span></a>
+        </div>
+      </li>
+      <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li> -->
+      <li><a class="subheader">Sistema Portal</a></li>
+      <li>
+        <div class="divider"></div>
+      </li>
+      <!-- <li><a class="subheader">Subheader</a></li> -->
+      <li><a class="waves-effect" href="#!"><i class="material-icons">vpn_key</i>Senhas</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Dropdown Trigger -->
+<a class='dropdown-button btn' href='#' target="_self" data-activates='dropdown1'>Drop Me!</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+  </ul>
+
 
 <router-outlet></router-outlet>
