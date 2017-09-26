@@ -1,15 +1,12 @@
-
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import { ContactComponent } from './contact/contact.component';
 // import { AuthGuard } from './../../guards/auth.guard';
-import { IndexComponent } from './index/index.component';
+import { IndexHomeComponent } from './index/index-home.component';
 
 const HomeRoutesApp: Routes = [
   { path: '', redirectTo: '/home/index'},
-  { path: 'index', component: IndexComponent }, // , canActivate: [AuthGuard] },
-  { path: 'contato', component: ContactComponent } // , canActivate: [AuthGuard] },
+  { path: 'index', component: IndexHomeComponent }, // , canActivate: [AuthGuard] },
 ];
 
 @NgModule({

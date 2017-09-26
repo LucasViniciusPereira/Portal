@@ -7,9 +7,14 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "baseUrl": "",
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "types": [
+      "jquery",
+      "materialize-css"
     ],
     "lib": [
       "es2017",

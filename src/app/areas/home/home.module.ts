@@ -3,8 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // Components
-import { IndexComponent } from './index/index.component';
-import { ContactComponent } from './contact/contact.component';
+import { IndexHomeComponent } from './index/index-home.component';
 
 // Modules
 import { HomeRoutes } from './home.routes';
@@ -17,8 +16,7 @@ import { AuthService } from './../../shared/services/auth.service';
     HomeRoutes
   ],
   declarations: [
-    IndexComponent,
-    ContactComponent
+    IndexHomeComponent,
   ],
   exports: [],
   providers: [

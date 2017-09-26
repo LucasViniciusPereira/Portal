@@ -7,7 +7,7 @@ import { SharedModule } from './shared.module';
 import { AppRoutingModule } from './app.routing.module';
 
 // Components
-import { SiteComponent } from './components/site/site.component';
+import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './areas/home/login/login.component';
 
 // Providers
@@ -17,7 +17,7 @@ import { AuthService } from './shared/services/auth.service';
 @NgModule({
   declarations: [
     AppComponent,
-    SiteComponent,
+    IndexComponent,
     LoginComponent
   ],
   imports: [

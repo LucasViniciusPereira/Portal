@@ -1,43 +1,51 @@
-<nav>
-  <div class="nav-wrapper">
-    <a href="" data-activates="slide-out" class="button-collapse" style="display: block;">
-      <i class="material-icons">menu</i>
+<mz-sidenav [id]="'sidenav'" [collapseButtonId]="'btn-sidenav'">
+  <!-- Header menu -->
+  <mz-sidenav-header>
+    <div class="user-view">
+      <div class="background">
+        <img src="http://materializecss.com/images/office.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
+      <a href="#!name"><span class="white-text name">Usuário</span></a>
+      <a href="#!email"><span class="white-text email">E-mail</span></a>
+    </div>
+  </mz-sidenav-header>
+
+  <!-- Description menu -->
+  <mz-sidenav-subheader>Geral</mz-sidenav-subheader>
+
+  <!-- Links menu -->
+  <mz-sidenav-link>
+    <a href="#">
+        <i mz-icon [icon]="'vpn_key'"></i>
+        Guarda senhas
     </a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+</mz-sidenav>
 
-    <ul id="slide-out" class="side-nav">
-      <li>
-        <div class="user-view">
-          <div class="background">
-            <img src="http://materializecss.com/images/office.jpg">
-          </div>
-          <a href="#!user"><img class="circle" src="http://materializecss.com/images/yuna.jpg"></a>
-          <a href="#!name"><span class="white-text name">Usuário</span></a>
-          <a href="#!email"><span class="white-text email">E-mail</span></a>
-        </div>
-      </li>
-      <!-- <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li> -->
-      <li><a class="subheader">Sistema Portal</a></li>
-      <li>
-        <div class="divider"></div>
-      </li>
-      <!-- <li><a class="subheader">Subheader</a></li> -->
-      <li><a class="waves-effect" href="#!"><i class="material-icons">vpn_key</i>Senhas</a></li>
-    </ul>
-  </div>
-</nav>
+<mz-navbar>
+  <a [id]="'btn-sidenav'" href="#" data-activates="slide-out" class="button-collapse" style="display: block;">
+        <i class="material-icons">menu</i>
+  </a>
 
-<!-- Dropdown Trigger -->
-<a class='dropdown-button btn' href='#' target="_self" data-activates='dropdown1'>Drop Me!</a>
+  <mz-navbar-item-container [align]="'right'">
+    <mz-navbar-item>
+      <a href="#" id="btn-dropdown-user-app">
+          <i class="material-icons right">arrow_drop_down</i>Nome
+      </a>
+    </mz-navbar-item>
+  </mz-navbar-item-container>
 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">one</a></li>
-    <li><a href="#!">two</a></li>
-    <li class="divider"></li>
-    <li><a href="#!">three</a></li>
-    <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
-  </ul>
+  <!-- Dropdown -->
+  <mz-dropdown [id]="'dropdown-user-app'" [belowOrigin]="true" [dropdownButtonId]="'btn-dropdown-user-app'" [gutter]="true"
+    [outDuration]="300" [stopPropagation]="true">
+    <mz-dropdown-item><a href="#">One</a></mz-dropdown-item>
+    <mz-dropdown-item><a href="#">Two</a></mz-dropdown-item>
+    <mz-dropdown-divider></mz-dropdown-divider>
+    <mz-dropdown-item><a href="#">Three</a></mz-dropdown-item>
+  </mz-dropdown>
 
+</mz-navbar>
 
 <router-outlet></router-outlet>

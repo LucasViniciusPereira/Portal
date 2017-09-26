@@ -8,7 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
 import { LoginComponent } from './areas/home/login/login.component';
-import { SiteComponent } from './components/site/site.component';
+import { IndexComponent } from './components/index/index.component';
 
 // lAYOUTS
 import { MasterpageComponent } from './layouts/master-page/masterpage.component';
@@ -19,6 +19,7 @@ import { BASE_ROUTES } from './layouts/base/base.routes';
 const appRoutes: Routes = [
   // Layouts
   { path: 'home', component: MasterpageComponent, children: MASTERPAGE_ROUTES },
+  { path: 'general', component: MasterpageComponent, children: MASTERPAGE_ROUTES },
   { path: '', component: BaseComponent, children: BASE_ROUTES },
   // http-Codes
   { path: 'forbidden', component: ForbiddenComponent},
