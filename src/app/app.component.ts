@@ -10,11 +10,7 @@ declare var $: any;
 export class AppComponent implements OnInit {
 
   ngOnInit(): void {
-    this.initializeTheme();
-  }
-
-  private initializeTheme() {
-    $('.modal').modal();
 
   }
+
 }

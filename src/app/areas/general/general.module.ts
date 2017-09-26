@@ -1,3 +1,4 @@
+import { GeneralRoutes } from './general.routes';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -6,7 +7,8 @@ import { IndexGeneralComponent } from './index/index-general.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    GeneralRoutes
   ],
   declarations: [
     SecurekeyComponent,

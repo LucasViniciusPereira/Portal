@@ -5,9 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
-import { BaseComponent } from './layouts/base/base.component';
-import { MasterpageComponent } from './layouts/master-page/masterpage.component';
 import { MaterializeModule } from 'ng2-materialize';
+import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
+import { LayoutBaseComponent } from './shared/components/layout-base/layout-base.component';
 
 @NgModule({
   imports: [
@@ -22,8 +22,8 @@ import { MaterializeModule } from 'ng2-materialize';
   declarations: [
     NotfoundComponent,
     ForbiddenComponent,
-    BaseComponent,
-    MasterpageComponent
+    LayoutBaseComponent,
+    LayoutPrincipalComponent
   ]
 })
 

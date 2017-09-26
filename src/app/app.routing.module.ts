@@ -11,16 +11,16 @@ import { LoginComponent } from './areas/home/login/login.component';
 import { IndexComponent } from './components/index/index.component';
 
 // lAYOUTS
-import { MasterpageComponent } from './layouts/master-page/masterpage.component';
-import { MASTERPAGE_ROUTES } from './layouts/master-page/masterpage.routes';
-import { BaseComponent } from './layouts/base/base.component';
-import { BASE_ROUTES } from './layouts/base/base.routes';
+import { LAYOUT_BASE_ROUTES } from './shared/components/layout-base/layout-base.routes';
+import { LAYOUT_PRINCIPAL_ROUTES } from './shared/components/layout-principal/layout-principal.routes';
+import { LayoutBaseComponent } from './shared/components/layout-base/layout-base.component';
+import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 
 const appRoutes: Routes = [
   // Layouts
-  { path: 'home', component: MasterpageComponent, children: MASTERPAGE_ROUTES },
-  { path: 'general', component: MasterpageComponent, children: MASTERPAGE_ROUTES },
-  { path: '', component: BaseComponent, children: BASE_ROUTES },
+  { path: 'home', component: LayoutPrincipalComponent, children: LAYOUT_PRINCIPAL_ROUTES },
+  { path: 'general', component: LayoutPrincipalComponent, children: LAYOUT_PRINCIPAL_ROUTES },
+  { path: '', component: LayoutBaseComponent, children: LAYOUT_BASE_ROUTES },
   // http-Codes
   { path: 'forbidden', component: ForbiddenComponent},
   { path: '**', component: NotfoundComponent } // canActivate: [AuthGuard]}
