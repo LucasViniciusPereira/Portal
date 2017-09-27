@@ -11,19 +11,22 @@ import { LoginComponent } from './areas/home/login/login.component';
 import { IndexComponent } from './components/index/index.component';
 
 // lAYOUTS
-import { LAYOUT_BASE_ROUTES } from './shared/components/layout-base/layout-base.routes';
-import { LAYOUT_PRINCIPAL_ROUTES } from './shared/components/layout-principal/layout-principal.routes';
-import { LayoutBaseComponent } from './shared/components/layout-base/layout-base.component';
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 
 const appRoutes: Routes = [
-  // Layouts
-  { path: 'home', component: LayoutPrincipalComponent, children: LAYOUT_PRINCIPAL_ROUTES },
-  { path: 'general', component: LayoutPrincipalComponent, children: LAYOUT_PRINCIPAL_ROUTES },
-  { path: '', component: LayoutBaseComponent, children: LAYOUT_BASE_ROUTES },
+  { path: '', redirectTo: 'home/index', pathMatch: 'full' },
+  { path: 'index', component: IndexComponent,  },
+  { path: 'login', component: LoginComponent},
+
+  // Modules
+  { path: 'home',  component: LayoutPrincipalComponent,
+      loadChildren: 'app/areas/home/home.module#HomeModule'},
+  { path: 'general',  component: LayoutPrincipalComponent,
+      loadChildren: 'app/areas/general/general.module#GeneralModule'},
+
   // http-Codes
   { path: 'forbidden', component: ForbiddenComponent},
-  { path: '**', component: NotfoundComponent } // canActivate: [AuthGuard]}
+  { path: '**', component: NotfoundComponent }
 ];
 
 @NgModule({

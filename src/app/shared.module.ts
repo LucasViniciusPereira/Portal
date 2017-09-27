@@ -17,12 +17,12 @@ import { LayoutBaseComponent } from './shared/components/layout-base/layout-base
     MaterializeModule.forRoot()
   ],
   exports: [
-    MaterializeModule
+    MaterializeModule,
+    LayoutPrincipalComponent
   ],
   declarations: [
     NotfoundComponent,
     ForbiddenComponent,
-    LayoutBaseComponent,
     LayoutPrincipalComponent
   ]
 })

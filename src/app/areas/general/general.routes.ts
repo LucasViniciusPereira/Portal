@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { IndexGeneralComponent } from './index/index-general.component';
 import { SecurekeyComponent } from './securekey/securekey.component';
 
-const GeneralRoutesApp = [
-  { path: '', redirectTo: '/general/index'},
-  { path: 'index', component: IndexGeneralComponent },
+const GeneralRoutesApp: Routes = [
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: 'index', component: IndexGeneralComponent,  },
   { path: 'keys', component: SecurekeyComponent },
 ];
 
