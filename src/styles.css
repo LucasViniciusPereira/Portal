@@ -1,10 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
-header, main, footer {
+header,
+main,
+footer {
   padding-left: 300px;
 }
 
-@media only screen and (max-width : 992px) {
-  header, main, footer {
+@media only screen and (max-width: 992px) {
+  header,
+  main,
+  footer {
     padding-left: 0;
   }
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.34);
+}
+.btn-filter {
+  position: absolute;
+  right: 15px;
+  bottom: -28px;
 }

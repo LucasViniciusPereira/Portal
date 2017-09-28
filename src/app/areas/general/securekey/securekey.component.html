@@ -1,18 +1,45 @@
 <div class="row">
   <div class="col s12">
     <div class="card">
-      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+      <!-- Botões -->
+      <div class="fixed-action-btn horizontal click-to-toggle btn-filter">
+        <a class="btn-floating waves-effect waves-light btn-large red">
+              <i class="material-icons">menu</i>
+            </a>
+        <ul>
+          <li><a class="btn-floating waves-effect waves-light blue"><i class="material-icons">add</i></a></li>
+          <li><a class="btn-floating waves-effect waves-light green"><i class="material-icons">search</i></a></li>
+          <!-- <li><a class="btn-floating waves-effect waves-light green"><i class="material-icons">publish</i></a></li>
+          <li><a class="btn-floating waves-effect waves-light blue"><i class="material-icons">attach_file</i></a></li> -->
+        </ul>
+      </div>
+
       <div class="card-content">
-        <span class="card-title"><i mz-icon [size]="'tiny'" [icon]="'turned_in'"></i>Filtro</span>
+        <span class="card-title">Filtro</span>
         <hr class="grey lighten-4" />
-        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little
-          markup to use effectively.</p>
+
+        <!-- Campos -->
+        <div class="row">
+          <div class="col s12">
+            <div class="input-field col s6">
+              <input id="txtDescricao" type="text" />
+              <label for="txtDescricao">Descrição</label>
+            </div>
+            <div class="input-field col s6">
+              <i class="material-icons prefix">date_range</i>
+              <input id="txtDataAtualizacao" type="text" />
+              <label for="txtDataAtualizacao">Data atualização</label>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </div>
 
-<table class="bordered highlight responsive-table">
+<!-- <table class="bordered highlight responsive-table">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,4 +56,4 @@
     </tr>
 
   </tbody>
-</table>
+</table> -->
