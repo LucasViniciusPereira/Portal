@@ -13,8 +13,8 @@ export class SecurekeyService {
     private svcHttp: HttpService
   ) { }
 
-  getSecureKeys(): Observable<SecureKeyModel> {
-    const url = 'http://www.mocky.io/v2/59cd8e9c110000d101cccb9a';
+  getSecureKeys(): Observable<Array<SecureKeyModel>> {
+    const url = 'http://www.mocky.io/v2/59ce2a5c110000bb03cccd41';
 
     return this.svcHttp.get(url);
   }

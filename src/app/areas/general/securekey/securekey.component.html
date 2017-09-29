@@ -39,24 +39,23 @@
     </div>
 
     <!-- Grid -->
-    <div class="card margin-top-40">
+    <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0" >
       <div class="card-content">
         <table class="bordered highlight responsive-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+              <th>Descrição</th>
+              <th>Url</th>
+              <th>Última atualização</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>Alvin</td>
-              <td>Eclair</td>
-              <td>$0.87</td>
+            <tr *ngFor="let item of lstSecureKeys">
+              <td> {{ item.Description }} </td>
+              <td> {{ item.Url }} </td>
+              <td> {{ item.DateRefresh }} </td>
             </tr>
-
           </tbody>
         </table>
       </div>

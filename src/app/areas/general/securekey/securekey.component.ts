@@ -1,3 +1,4 @@
+import { SecureKeyModel } from './model/securekey.model';
 import { SecurekeyService } from './securekey.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SecurekeyComponent implements OnInit {
 
+  private lstSecureKeys: Array<SecureKeyModel> = new Array<any>();
+
   constructor(
     private svcSecureKey: SecurekeyService
   ) { }
@@ -16,9 +19,11 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private loadData() {
-    const result = this.svcSecureKey.getSecureKeys();
-    console.log(result);
-    return result;
+    this.svcSecureKey
+      .getSecureKeys()
+      .subscribe((data: Array<SecureKeyModel>) => {
+        this.lstSecureKeys = data;
+      });
   }
 
 }
