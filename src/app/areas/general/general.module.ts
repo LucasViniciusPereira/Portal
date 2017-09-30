@@ -7,12 +7,14 @@ import { SecurekeyService } from './securekey/securekey.service';
 
 import { SecurekeyComponent } from './securekey/securekey.component';
 import { IndexGeneralComponent } from './index/index-general.component';
+import { MaterializeModule } from 'ng2-materialize';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     GeneralRoutes,
+    MaterializeModule.forRoot()
   ],
   declarations: [
     SecurekeyComponent,

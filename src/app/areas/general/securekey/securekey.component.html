@@ -5,7 +5,7 @@
 
       <!-- Botões -->
       <div class="fixed-action-btn horizontal btn-filter">
-        <a class="btn-floating waves-effect waves-light btn-large pulse red">
+        <a class="btn-floating waves-effect waves-light btn-large pulse2 red">
               <i class="material-icons">menu</i>
             </a>
         <ul>
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Grid -->
-    <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0" >
+    <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0">
       <div class="card-content">
         <table class="bordered highlight responsive-table">
           <thead>
@@ -47,14 +47,26 @@
               <th>Descrição</th>
               <th>Url</th>
               <th>Última atualização</th>
+              <th></th>
             </tr>
           </thead>
 
           <tbody>
-            <tr *ngFor="let item of lstSecureKeys">
+            <tr *ngFor="let item of lstSecureKeys; let i = index">
               <td> {{ item.Description }} </td>
               <td> {{ item.Url }} </td>
-              <td> {{ item.DateRefresh }} </td>
+              <td> {{ item.DateRefresh }}</td>
+              <td>
+                <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
+                  [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
+                  <mz-dropdown-item><a href="#!"><i class="material-icons">visibility</i>Visualizar</a></mz-dropdown-item>
+                  <mz-dropdown-item><a href="#!"><i class="material-icons">create</i>Editar</a></mz-dropdown-item>
+                  <mz-dropdown-item><a href="#!"><i class="material-icons">delete</i>Excluir</a></mz-dropdown-item>
+                </mz-dropdown>
+                <div class="right hide-on-med-and-down">
+                  <a class="btn-grid-group waves-effect waves-light" [id]="'btn-dropdown' + i"><i class="material-icons">more_vert</i></a>
+                </div>
+              </td>
             </tr>
           </tbody>
         </table>

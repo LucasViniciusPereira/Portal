@@ -12,7 +12,11 @@ import { AuthGuard } from './guards/auth.guard';
     CommonModule,
     RouterModule,
     HttpModule,
+    MaterializeModule.forRoot()
   ],
+  // exports: [
+  //   MaterializeModule
+  // ],
   declarations: [
   ],
   providers: [
