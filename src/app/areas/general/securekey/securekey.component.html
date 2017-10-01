@@ -59,9 +59,9 @@
               <td>
                 <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
                   [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
-                  <mz-dropdown-item><a href="#!"><i class="material-icons">visibility</i>Visualizar</a></mz-dropdown-item>
-                  <mz-dropdown-item><a href="#!"><i class="material-icons">create</i>Editar</a></mz-dropdown-item>
-                  <mz-dropdown-item><a href="#!"><i class="material-icons">delete</i>Excluir</a></mz-dropdown-item>
+                  <mz-dropdown-item><a href="javascript:void(0)" (click)="showDetails(item)"><i class="material-icons">visibility</i>Visualizar</a></mz-dropdown-item>
+                  <mz-dropdown-item><a href="javascript:void(0)"><i class="material-icons">create</i>Editar</a></mz-dropdown-item>
+                  <mz-dropdown-item><a href="javascript:void(0)"><i class="material-icons">delete</i>Excluir</a></mz-dropdown-item>
                 </mz-dropdown>
                 <div class="right hide-on-med-and-down">
                   <a class="btn-grid-group waves-effect waves-light" [id]="'btn-dropdown' + i"><i class="material-icons">more_vert</i></a>
@@ -74,5 +74,3 @@
     </div>
   </div>
 </div>
-
-<button mz-button (click)="loadModal()">Modal</button>

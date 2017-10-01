@@ -8,12 +8,10 @@ export class PreloaderService {
   constructor() { }
 
   show() {
-    console.log('show emit');
     this.loaderSubject.emit(true);
   }
 
   hide() {
-    console.log('hide emit');
     this.loaderSubject.emit(false);
   }
 }

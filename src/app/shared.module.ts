@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -12,11 +13,10 @@ import { AuthGuard } from './guards/auth.guard';
     CommonModule,
     RouterModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterializeModule.forRoot()
   ],
-  // exports: [
-  //   MaterializeModule
-  // ],
   declarations: [
   ],
   providers: [

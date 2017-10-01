@@ -1,7 +1,8 @@
-import { MzModalService } from 'ng2-materialize/dist';
-import { SecureKeyModel } from './model/securekey.model';
-import { SecurekeyService } from './securekey.service';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
+import { MzModalService } from 'ng2-materialize/dist';
+
+import { SecureKeyModel, SecureKeyListModel } from './models/securekey.model';
+import { SecurekeyService } from './securekey.service';
 import { SecurekeyDetailsComponent } from './securekey-details/securekey-details.component';
 
 @Component({
@@ -11,7 +12,7 @@ import { SecurekeyDetailsComponent } from './securekey-details/securekey-details
 })
 export class SecurekeyComponent implements OnInit {
 
-  private lstSecureKeys: Array<SecureKeyModel> = new Array<any>();
+  private lstSecureKeys: Array<SecureKeyListModel> = new Array<any>();
 
   constructor(
     private svcSecureKey: SecurekeyService,
@@ -24,12 +25,16 @@ export class SecurekeyComponent implements OnInit {
   private loadData() {
     this.svcSecureKey
       .getSecureKeys()
-      .subscribe((data: Array<SecureKeyModel>) => {
+      .subscribe((data: Array<SecureKeyListModel>) => {
         this.lstSecureKeys = data;
       });
   }
 
- public loadModal() {
-   this.modalService.open(SecurekeyDetailsComponent, { nome : 'Teste de moodalllll' });
+  private showDetails(item: SecureKeyListModel) {
+    this.svcSecureKey
+        .getSecureKey(null)
+        .subscribe((data: SecureKeyModel) => {
+          this.modalService.open(SecurekeyDetailsComponent, { model: data });
+        });
   }
 }

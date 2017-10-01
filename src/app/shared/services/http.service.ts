@@ -20,7 +20,6 @@ export class HttpService {
   }
 
   get(url: string, params?: RequestOptionsArgs): Observable<any> {
-    console.log('init');
     this.onStart();
     return (
       this.http
@@ -35,7 +34,6 @@ export class HttpService {
           }
         )
         .finally(() => {
-          console.log('stop');
           this.onStop();
         })
     );
@@ -46,12 +44,10 @@ export class HttpService {
   }
 
   private onStop() {
-    console.log('hide');
     this.svcPreloader.hide();
   }
 
   private onStart() {
-    console.log('show');
     this.svcPreloader.show();
   }
 }
