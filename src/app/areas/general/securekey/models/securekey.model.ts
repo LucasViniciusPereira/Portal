@@ -6,6 +6,7 @@ export class SecureKeyModel {
   Description = [null, Validators.required];
   Url = [null, Validators.required];
   DateRefresh = [null, Validators.required];
+  Password = [null, Validators.required];
 
   constructor(
     private fb: FormBuilder

@@ -9,6 +9,8 @@ import { HttpService } from './shared/services/http.service';
 import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
+  declarations: [
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -17,7 +19,9 @@ import { AuthGuard } from './guards/auth.guard';
     ReactiveFormsModule,
     MaterializeModule.forRoot()
   ],
-  declarations: [
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     HttpService,

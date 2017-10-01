@@ -1,0 +1,34 @@
+<mz-modal>
+  <mz-modal-header>
+    <h5 class="title-modal-custom">
+      Guarda senha
+    </h5>
+    <hr class="grey lighten-4">
+  </mz-modal-header>
+  <mz-modal-content>
+
+    <form [formGroup]="secureKeyModel">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="txtDescription" class="active">Descrição</label>
+          <input id="txtDescription" type="text" class="form-control" formControlName="Description" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="txtUrl" class="active">Url</label>
+          <input id="txtUrl" type="text" class="form-control" formControlName="Url" />
+        </div>
+        <div class="input-field col s6">
+          <label for="txtPassword" class="active">Senha</label>
+          <input id="txtPassword" type="text" class="form-control" formControlName="Password" />
+        </div>
+      </div>
+    </form>
+
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button class="waves-effect btn-flat" mz-modal-close>
+        <i class="material-icons left">clear</i> Fechar</button>
+  </mz-modal-footer>
+</mz-modal>

@@ -1,12 +1,46 @@
 <mz-modal>
   <mz-modal-header>
-    {{ secureKeyModel.controls.KeyID.value }}
+    <h5 class="title-modal-custom">
+      {{ secureKeyModel.controls.Description.value }}
+    </h5>
+    <hr class="grey lighten-4">
   </mz-modal-header>
   <mz-modal-content>
-      {{ secureKeyModel.controls.Description.value }}
+
+    <div class="row">
+      <div class="input-field col s6">
+        <label class="active">Identificador</label>
+        <span>{{ secureKeyModel.controls.KeyID.value }}</span>
+      </div>
+      <div class="input-field col s6">
+        <label class="active">Descrição</label>
+        <span>{{ secureKeyModel.controls.Description.value }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <label class="active">Url</label>
+        <span>{{ secureKeyModel.controls.Url.value }}</span>
+      </div>
+      <div class="input-field col s6">
+        <label class="active">Senha</label>
+        <span>{{ secureKeyModel.controls.Password.value }}</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <label class="active">Data de criação</label>
+        <span>{{ secureKeyModel.controls.DateRefresh.value }}</span>
+      </div>
+      <div class="input-field col s6">
+        <label class="active">Última atualização</label>
+        <span>{{ secureKeyModel.controls.DateRefresh.value }}</span>
+      </div>
+    </div>
+
   </mz-modal-content>
   <mz-modal-footer>
-    <button mz-button [flat]="true" mz-modal-close>Disagree</button>
-    <button mz-button [flat]="true" mz-modal-close>Agree</button>
+    <button class="waves-effect btn-flat" mz-modal-close>
+      <i class="material-icons left">clear</i> Fechar</button>
   </mz-modal-footer>
 </mz-modal>
