@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
-import { MzModalService } from 'ng2-materialize/dist';
+import { MzModalService, MzToastService } from 'ng2-materialize/dist';
 
 import { SecureKeyModel, SecureKeyListModel } from './models/securekey.model';
 import { SecurekeyService } from './securekey.service';
@@ -20,7 +20,8 @@ export class SecurekeyComponent implements OnInit {
   constructor(
     private svcSecureKey: SecurekeyService,
     private modalService: MzModalService,
-    private mzToastService: MzToastService,
+    private toastService: MzToastService,
+    private helperMessage: HelperMessage
   ) { }
 
   ngOnInit() {
@@ -55,6 +56,7 @@ export class SecurekeyComponent implements OnInit {
   }
 
   teste() {
-    HelperMessage(this.mzToastService).showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
+    this.helperMessage.showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
+    // new HelperMessage(this.toastService).showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
   }
 }

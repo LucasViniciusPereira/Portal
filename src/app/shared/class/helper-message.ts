@@ -1,7 +1,8 @@
 import { Enumerations } from './../enumerators/enumerations';
 import { MzToastService } from 'ng2-materialize';
-import { Optional } from '@angular/core';
+import { Optional, Injectable } from '@angular/core';
 
+@Injectable()
 export class HelperMessage {
 
   constructor(private toastService: MzToastService) {
