@@ -5,6 +5,8 @@ import { SecureKeyModel, SecureKeyListModel } from './models/securekey.model';
 import { SecurekeyService } from './securekey.service';
 import { SecurekeyDetailsComponent } from './securekey-details/securekey-details.component';
 import { SecurekeyCreateEditComponent } from './securekey-create-edit/securekey-create-edit.component';
+import { HelperMessage } from './../../../shared/class/helper-message';
+import { Enumerations } from './../../../shared/enumerators/enumerations';
 
 @Component({
   selector: 'app-securekey',
@@ -17,7 +19,8 @@ export class SecurekeyComponent implements OnInit {
 
   constructor(
     private svcSecureKey: SecurekeyService,
-    private modalService: MzModalService
+    private modalService: MzModalService,
+    private mzToastService: MzToastService,
   ) { }
 
   ngOnInit() {
@@ -33,7 +36,7 @@ export class SecurekeyComponent implements OnInit {
 
   private view(item: SecureKeyListModel) {
     this.svcSecureKey.getSecureKey(null).subscribe((data: SecureKeyModel) => {
-        this.modalService.open(SecurekeyDetailsComponent, { model: data });
+      this.modalService.open(SecurekeyDetailsComponent, { model: data });
     });
   }
 
@@ -49,5 +52,9 @@ export class SecurekeyComponent implements OnInit {
 
   private create(item: SecureKeyListModel) {
     alert('Falta implementação');
+  }
+
+  teste() {
+    HelperMessage(this.mzToastService).showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
   }
 }
