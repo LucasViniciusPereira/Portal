@@ -64,7 +64,8 @@ export class SecurekeyComponent implements OnInit {
     console.log(aux.pro);
 
     const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
-    validation.addValidation(new Exception.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
+    validation.addValidation(new Exception.RuleValidationSimple('O campo nome não foi preenchido.'));
+    validation.addValidation(new Exception.RuleValidationSimple('O campo email não foi preenchido.'));
 
     if (validation.hasValidation) {
       return validation;
