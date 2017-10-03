@@ -5,8 +5,7 @@ import { Optional, Injectable } from '@angular/core';
 @Injectable()
 export class HelperMessage {
 
-  constructor(private toastService: MzToastService) {
-  }
+  constructor(private toastService: MzToastService) { }
 
   public showMessage(typeMessage: Enumerations.eTypeMessage, message: any[]) {
 

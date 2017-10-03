@@ -7,6 +7,8 @@ import { SecurekeyDetailsComponent } from './securekey-details/securekey-details
 import { SecurekeyCreateEditComponent } from './securekey-create-edit/securekey-create-edit.component';
 import { HelperMessage } from './../../../shared/class/helper-message';
 import { Enumerations } from './../../../shared/enumerators/enumerations';
+import { FilterException } from '../../../shared/decorators/filter-exception';
+import { Exception } from '../../../shared/class/exception-validation';
 
 @Component({
   selector: 'app-securekey',
@@ -55,8 +57,17 @@ export class SecurekeyComponent implements OnInit {
     alert('Falta implementação');
   }
 
+  @FilterException
   teste() {
-    this.helperMessage.showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
-    // new HelperMessage(this.toastService).showMessage(Enumerations.eTypeMessage.SUCCESS, ['teste de mensagem']);
+    const aux = null;
+    aux.pro = null;
+    console.log(aux.pro);
+
+    const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
+    validation.addValidation(new Exception.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
+
+    if (validation.hasValidation) {
+      return validation;
+    }
   }
 }

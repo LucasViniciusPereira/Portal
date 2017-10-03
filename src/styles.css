@@ -37,6 +37,11 @@ hr {
 .title-modal-custom{ margin-bottom: -5px;}
 i.left{margin-right: 5px;}
 
+.message-warning{ background-color: gray; }
+.message-success{ background-color: green; }
+.message-error{ background-color: red; }
+.message-info{ background-color: blue; }
+
 /*** Identifiers ***/
 
 
