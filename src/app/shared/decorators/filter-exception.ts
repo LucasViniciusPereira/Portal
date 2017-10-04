@@ -1,3 +1,4 @@
+import { Exception } from './../class/exception-validation';
 import { MzToastService } from 'ng2-materialize';
 import { HelperMessage } from '../class/helper-message';
 import { Enumerations } from '../enumerators/enumerations';
@@ -17,12 +18,11 @@ export function FilterException(
   // salvando uma referência para o método original
   const originalMethod = descriptor.value;
 
-  descriptor.value = function(...args: any[]) {
+  descriptor.value = function (...args: any[]) {
     try {
       const result = originalMethod.apply(this, args);
 
-      // if(result as Validation.BusinessValidation)
-      if (result && result.constructor.name === 'BusinessValidation') {
+      if (result && <Exception.BusinessValidation>result) {
         return new HelperMessage(new MzToastService())
               .showMessage(Enumerations.eTypeMessage.ERROR, result.validations);
       }
@@ -32,8 +32,7 @@ export function FilterException(
       }
     } catch (e) {
       return new HelperMessage(new MzToastService())
-            .showMessage(Enumerations.eTypeMessage.WARNING,
-            ['Ocorreu algum erro na aplicação, favor tentar novamente.']);
+        .showMessage(Enumerations.eTypeMessage.WARNING, [`Erro na aplicação: ${e.message}`]);
     }
   };
   return descriptor;
