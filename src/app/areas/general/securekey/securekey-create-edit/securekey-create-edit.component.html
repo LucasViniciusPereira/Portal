@@ -28,7 +28,9 @@
 
   </mz-modal-content>
   <mz-modal-footer>
+    <button class="waves-effect btn-flat text-blue" mz-modal-close [disabled]="!isValidCustom()" (click)="save()">
+        <i class="material-icons left">save</i>Salvar</button>
     <button class="waves-effect btn-flat" mz-modal-close>
-        <i class="material-icons left">clear</i> Fechar</button>
+        <i class="material-icons left">clear</i>Fechar</button>
   </mz-modal-footer>
 </mz-modal>

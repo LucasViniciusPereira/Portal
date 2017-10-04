@@ -11,6 +11,7 @@ import { IndexGeneralComponent } from './index/index-general.component';
 import { MaterializeModule } from 'ng2-materialize';
 import { SecurekeyDetailsComponent } from './securekey/securekey-details/securekey-details.component';
 import { SecurekeyCreateEditComponent } from './securekey/securekey-create-edit/securekey-create-edit.component';
+import { SecurekeyDeleteComponent } from './securekey/securekey-delete/securekey-delete.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { SecurekeyCreateEditComponent } from './securekey/securekey-create-edit/
     IndexGeneralComponent,
     SecurekeyComponent,
     SecurekeyDetailsComponent,
-    SecurekeyCreateEditComponent
+    SecurekeyCreateEditComponent,
+    SecurekeyDeleteComponent
   ],
   entryComponents: [
     SecurekeyDetailsComponent,

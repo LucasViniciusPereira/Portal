@@ -54,20 +54,20 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private create(item: SecureKeyListModel) {
-    alert('Falta implementação');
+    this.modalService.open(SecurekeyCreateEditComponent, { model: null });
   }
 
-  @FilterException
-  teste() {
-    const aux = null;
-    aux.pro = null;
-    console.log(aux.pro);
+  // @FilterException
+  // teste() {
+  //   const aux = null;
+  //   aux.pro = null;
+  //   console.log(aux.pro);
 
-    const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
-    validation.addValidation(new Exception.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
+  //   const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
+  //   validation.addValidation(new Exception.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
 
-    if (validation.hasValidation) {
-      return validation;
-    }
-  }
+  //   if (validation.hasValidation) {
+  //     return validation;
+  //   }
+  // }
 }
