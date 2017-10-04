@@ -29,7 +29,8 @@ import { SecurekeyDeleteComponent } from './securekey/securekey-delete/securekey
   ],
   entryComponents: [
     SecurekeyDetailsComponent,
-    SecurekeyCreateEditComponent
+    SecurekeyCreateEditComponent,
+    SecurekeyDeleteComponent
   ],
   providers: [
     SecurekeyService,

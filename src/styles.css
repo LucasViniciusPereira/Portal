@@ -42,7 +42,11 @@ i.left{margin-right: 5px;}
 .message-error{ background-color: red; }
 .message-info{ background-color: blue; }
 .text-blue { color: #0d47a1; }
-.modal-popup { max-height: 60%; width: 35%; }
+.text-red { color: #e53935; }
+.modal-popup .modal { max-height: 60%; width: 30%; top: 25% !important;}
+.title-modal-popup { font-size: 17px; }
+.modal-footer { border-top: 1px solid rgba(0,0,0,.1);}
+
 
 /*** Identifiers ***/
 

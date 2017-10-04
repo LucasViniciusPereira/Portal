@@ -1,3 +1,4 @@
+import { SecurekeyDeleteComponent } from './securekey-delete/securekey-delete.component';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
 import { MzModalService, MzToastService } from 'ng2-materialize/dist';
 
@@ -50,7 +51,7 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private delete(item: SecureKeyListModel) {
-    alert('Falta implementação');
+    this.modalService.open(SecurekeyDeleteComponent);
   }
 
   private create(item: SecureKeyListModel) {

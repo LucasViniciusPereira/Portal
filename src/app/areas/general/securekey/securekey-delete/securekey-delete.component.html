@@ -1,17 +1,24 @@
-<mz-modal>
-  <mz-modal-header>
-    <h5 class="title-modal-custom">
-      Tem certeza?
-    </h5>
-    <hr class="grey lighten-4">
-  </mz-modal-header>
+<mz-modal class="modal-popup">
   <mz-modal-content>
-
-  Modal de excluir
+    <div class="title-modal-popup">Tem certeza que deseja excluir ?</div>
+    <br>
+    <div class="row">
+      <div class="col s2">
+        <i mz-icon [align]="'right'" [icon]="'description'" [size]="'medium'"></i>
+      </div>
+      <div class="col s10">
+        <span>Submarino</span><br>
+        <span>http://google.com.br</span><br>
+        <span>Data de atualização: 18/02/2017</span>
+      </div>
+    </div>
 
   </mz-modal-content>
-  <mz-modal-footer>
-    <button class="waves-effect btn-flat" mz-modal-close>
-      <i class="material-icons left">clear</i> Fechar</button>
+  <mz-modal-footer class="modal-footer2">
+    <button class="waves-effect btn-flat text-blue" mz-modal-close>
+            <i class="material-icons left">done</i> Sim</button>
+
+    <button class="waves-effect btn-flat text-red" mz-modal-close>
+                <i class="material-icons left">clear</i> Não</button>
   </mz-modal-footer>
 </mz-modal>
