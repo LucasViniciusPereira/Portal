@@ -21,19 +21,21 @@
         <hr class="grey lighten-4" />
 
         <!-- Campos -->
-        <div class="row">
-          <div class="col s12">
-            <div class="input-field col s6">
-              <input id="txtDescricao" type="text" />
-              <label for="txtDescricao">Descrição</label>
-            </div>
-            <div class="input-field col s6">
-              <i class="material-icons prefix">date_range</i>
-              <input id="txtDataAtualizacao" type="text" />
-              <label for="txtDataAtualizacao">Data de atualização</label>
+        <form [formGroup]="filterModel" (ngSubmit)="loadData()">
+          <div class="row">
+            <div class="col s12">
+              <div class="input-field col s6">
+                <input id="txtDescricao" type="text" formControlName="Description" />
+                <label for="txtDescricao">Descrição</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">date_range</i>
+                <input id="txtDataAtualizacao" type="text" formControlName="DateRefresh" />
+                <label for="txtDataAtualizacao">Data de atualização</label>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
 
       </div>
     </div>
@@ -75,4 +77,3 @@
   </div>
 </div>
 <!-- <a (click)="teste()">clice aqui</a> -->
-<a (click)="delete('')">clice aqui</a>

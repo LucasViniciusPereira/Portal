@@ -19,3 +19,12 @@ export class SecureKeyListModel {
   Url: string;
   DateRefresh: Date;
 }
+
+export class SecureKeyFilterModel {
+  Description = [null, Validators.nullValidator];
+  DateRefresh = [null, Validators.nullValidator];
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
+}

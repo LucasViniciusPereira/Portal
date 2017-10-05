@@ -7,18 +7,17 @@
         <i mz-icon [align]="'right'" [icon]="'description'" [size]="'medium'"></i>
       </div>
       <div class="col s10">
-        <span>Submarino</span><br>
-        <span>http://google.com.br</span><br>
-        <span>Data de atualização: 18/02/2017</span>
+        <span class="col s12">{{ model.Description }}</span>
+        <span class="col s12">{{ model.Url }}</span>
+        <span class="col s12">Data de atualização: {{ model.DateRefresh }}</span>
       </div>
     </div>
-
   </mz-modal-content>
   <mz-modal-footer class="modal-footer2">
-    <button class="waves-effect btn-flat text-blue" mz-modal-close>
+    <button class="waves-effect btn-flat text-blue" (click)="delete()" mz-modal-close>
             <i class="material-icons left">done</i> Sim</button>
 
-    <button class="waves-effect btn-flat text-red" mz-modal-close>ç
+    <button class="waves-effect btn-flat text-red" mz-modal-close>
                 <i class="material-icons left">clear</i> Não</button>
   </mz-modal-footer>
 </mz-modal>

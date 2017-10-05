@@ -3,6 +3,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BaseModal } from '../../../../shared/class/base-modal';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { FilterException } from '../../../../shared/decorators/filter-exception';
+import { HelperMessage } from '../../../../shared/class/helper-message';
+import { Enumerations } from '../../../../shared/enumerators/enumerations';
+import { SecurekeyService } from '../securekey.service';
 
 @Component({
   selector: 'app-securekey-create-edit',
@@ -14,6 +17,8 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
   secureKeyModel = this.fb.group(new SecureKeyModel(this.fb));
 
     constructor(
+      private svcSecureKey: SecurekeyService,
+      private helperMessage: HelperMessage,
       private fb: FormBuilder
     ) {
       super();
@@ -37,9 +42,12 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
 
     @FilterException
     save() {
-        if (!this.isValidCustom()) {
-          return console.log('Existem campos obrigatorios.');
-        }
+      if (!this.isValidCustom()) {
+        return this.helperMessage.showMessage(Enumerations.eTypeMessage.ERROR,
+          ['Há Campos obrigatórios que não foram preenchidos.']);
+      }
+
+      // this.svcSecureKey.
       alert('Implementar metodo de salvar');
     }
   }

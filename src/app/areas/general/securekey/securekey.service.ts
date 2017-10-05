@@ -13,21 +13,20 @@ export class SecurekeyService {
     private svcHttp: HttpService
   ) { }
 
-  getSecureKeys(): Observable<Array<SecureKeyListModel>> {
+  getSecureKeys(params: any): Observable<Array<SecureKeyListModel>> {
     const url = 'http://www.mocky.io/v2/59ce2a5c110000bb03cccd41';
 
     return this.svcHttp.get(url);
   }
 
   getSecureKey(id: number): Observable<SecureKeyModel> {
-    if (id == null) {
-        console.log('Identificador não pode ser vazio');
-    } else {
-      console.log('Falta implementar parametro: ' + id);
-    }
-
     const url = 'http://www.mocky.io/v2/59d0f6ba1200004f00244e59';
 
     return this.svcHttp.get(url);
+  }
+
+  postSecureKey(model: SecureKeyModel) { // : Observable<any> {
+    return true;
+    // return this.svcHttp
   }
 }
