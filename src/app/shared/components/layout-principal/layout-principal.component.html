@@ -23,7 +23,7 @@
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
   <mz-sidenav-link routerLinkActive="active">
-    <a href="/general/keys" routerLink="/general/keys">
+    <a href="#" routerLink="/general/keys">
         <i mz-icon [icon]="'vpn_key'"></i>
         Guarda senhas
     </a>
@@ -46,7 +46,11 @@
   <!-- Dropdown -->
   <mz-dropdown [id]="'dropdown-user-app'" [belowOrigin]="true" [dropdownButtonId]="'btn-dropdown-user-app'" [gutter]="true"
     [outDuration]="300" [stopPropagation]="true">
-    <mz-dropdown-item><a href="#">Sair</a></mz-dropdown-item>
+    <mz-dropdown-item>
+      <a href="#" routerLink="/login">
+        <i mz-icon [icon]="'reply'"></i>
+        Sair</a>
+    </mz-dropdown-item>
   </mz-dropdown>
 
 </mz-navbar>

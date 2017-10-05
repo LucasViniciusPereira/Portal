@@ -2,21 +2,24 @@
   <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
     <form>
       <div class="card-content">
-        <span class="card-title">Login</span>
+        <div class="center">
+          <span class="card-title" style="margin-bottom: 0px;">Portal</span>
+          <small>Sistema para gestão pessoal</small>
+        </div>
         <div class="row">
           <div class="input-field col s12">
             <label for="email">Email</label>
             <input type="email" class="validate" name="email" id="email" />
           </div>
           <div class="input-field col s12">
-            <label for="password">Password </label>
+            <label for="password">Senha </label>
             <input type="password" class="validate" name="password" id="password" />
           </div>
         </div>
       </div>
-      <div class="card-action right-align">
-        <input type="reset" id="reset" class="btn-flat grey-text waves-effect">
-        <input class="btn green waves-effect waves-light" value="Login" (click)= "submit()">
+      <div class="card-action center">
+        <button type="reset" class="waves-effect btn-flat grey-text">Redefinir</button>
+        <a class="waves-effect waves-light btn" (click)="submit()"><i class="material-icons left">play_arrow</i>Entrar</a>
       </div>
     </form>
   </div>
