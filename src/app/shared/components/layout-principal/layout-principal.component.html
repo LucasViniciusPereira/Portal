@@ -16,12 +16,18 @@
 
   <!-- Links menu -->
   <mz-sidenav-link routerLinkActive="active">
+    <a href="#" routerLink="/home/index">
+          <i mz-icon [icon]="'home'"></i>
+          Página Inicial
+      </a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
+  <mz-sidenav-link routerLinkActive="active">
     <a href="/general/keys" routerLink="/general/keys">
         <i mz-icon [icon]="'vpn_key'"></i>
         Guarda senhas
     </a>
   </mz-sidenav-link>
-  <mz-sidenav-divider></mz-sidenav-divider>
 </mz-sidenav>
 
 <mz-navbar>
@@ -41,9 +47,6 @@
   <mz-dropdown [id]="'dropdown-user-app'" [belowOrigin]="true" [dropdownButtonId]="'btn-dropdown-user-app'" [gutter]="true"
     [outDuration]="300" [stopPropagation]="true">
     <mz-dropdown-item><a href="#">Sair</a></mz-dropdown-item>
-    <!-- <mz-dropdown-item><a href="#">Two</a></mz-dropdown-item>
-    <mz-dropdown-divider></mz-dropdown-divider>
-    <mz-dropdown-item><a href="#">Three</a></mz-dropdown-item> -->
   </mz-dropdown>
 
 </mz-navbar>
