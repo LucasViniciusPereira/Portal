@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
   submit() {
     // this.loginModel.ValidateLogin();
 
-    // Implementar validação do usuário
+    // this.svcAuth.login()
 
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 
   logout() {
