@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -36,6 +37,8 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     MaterializeModule.forRoot()
   ],
   providers: [
