@@ -1,12 +1,16 @@
+import { TokenService } from './token.service';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response, RequestOptionsArgs, RequestOptions } from '@angular/http';
+import { Headers, Http, RequestMethod, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/throw';
 import 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { PreloaderService } from './../components/preloader/preloader.service';
+import { Exception } from './../class/exception-validation';
+import { FilterException } from '../decorators/filter-exception';
 
 @Injectable()
 export class HttpService {
@@ -14,7 +18,8 @@ export class HttpService {
   constructor(
     private http: Http,
     private svcPreloader: PreloaderService,
-    private svcAuth: AuthService
+    private svcToken: TokenService
+    // private svcAuth: AuthService
   ) { }
 
   get(url: string, params?: RequestOptionsArgs): Observable<any> {
@@ -32,18 +37,16 @@ export class HttpService {
   post(url: string, model: any): Observable<any> {
     this.onStart();
 
-    const body = JSON.stringify(model);
-    const headersRequest = new Headers({'Content-Type': 'application/json'});
-
     // Token user application
-    const tokenUser = this.svcAuth.getTokenUser();
-    headersRequest.append('X-TokenApp', tokenUser);
+    const tokenUser = this.svcToken.getTokenUser();
+    const headers = new Headers({
+      'Content-Type': 'application/json; charset=UTF-8',
+      'X-TokenApp': tokenUser
+    });
+    const options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
 
-    const options = new RequestOptions({ headers: headersRequest });
-
-    return this.http.post(url, body, options)
-      .catch(this.callbackException)
-      .map((response: Response) => <any>response.json())
+    return this.http.post(url, JSON.stringify(model), options)
+      .map((res: Response) => res.json())
       .do((res: Response) => { }, (error: any) => { this.callbackError(error); })
       .finally(() => {
         this.onStop();
@@ -54,8 +57,10 @@ export class HttpService {
     return;
   }
 
+  @FilterException
   private callbackError(error: any): void {
-    return;
+    const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
+    return validation.addValidation(new Exception.RuleValidationSimple(error.Message));
   }
 
   private onStop() {

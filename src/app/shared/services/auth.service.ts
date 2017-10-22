@@ -8,7 +8,6 @@ import { Injectable } from '@angular/core';
 export class AuthService extends TokenService {
 
   constructor(
-    private router: Router,
     private svcHttp: HttpService
   ) {
     super();
@@ -20,9 +19,9 @@ export class AuthService extends TokenService {
   }
 
   login(params: any): Observable<any> {
-    const url = 'http://api.portal.lucasvinicius.net/security/login';
+    const url = 'http://api.portal.lucasvinicius.net/login';
 
-    return this.svcHttp.get(url);
+    return this.svcHttp.post(url, params);
   }
 
 }

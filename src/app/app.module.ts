@@ -1,3 +1,5 @@
+import { TokenService } from './shared/services/token.service';
+import { HttpService } from './shared/services/http.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -42,6 +44,8 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
     MaterializeModule.forRoot()
   ],
   providers: [
+    HttpService,
+    TokenService,
     AuthService,
     AuthGuard,
     PreloaderService

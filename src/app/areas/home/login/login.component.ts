@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from './../../../shared/services/auth.service';
+import { FilterException } from '../../../shared/decorators/filter-exception';
 
 @Component({
   selector: 'app-login',
@@ -24,10 +25,13 @@ export class LoginComponent implements OnInit {
     // this.router.navigate(['/']);
   }
 
+  @FilterException
   submit() {
     // this.loginModel.ValidateLogin();
+    const model = { email: this.loginModel.controls['Email'].value,
+    password: this.loginModel.controls['Password'].value };
 
-    // this.svcAuth.login()
+    this.svcAuth.login(model).subscribe(data => console.log(data));
 
     // this.router.navigate(['/']);
   }
