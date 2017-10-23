@@ -15,7 +15,12 @@ export class AuthService extends TokenService {
 
   isLoggedIn(): boolean {
     // Implementar: Busca autenticação do usuário
-    return false;
+    const token = this.getTokenUser();
+
+    if (token == null || token === undefined) {
+      return false;
+    }
+    return true;
   }
 
   login(params: any): Observable<any> {

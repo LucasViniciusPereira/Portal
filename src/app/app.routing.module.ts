@@ -15,14 +15,14 @@ import { LayoutPrincipalComponent } from './shared/components/layout-principal/l
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home/index', pathMatch: 'full' },
-  { path: 'index', component: IndexComponent,  },
+  { path: 'index', component: IndexComponent,  canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent},
 
   // Modules
   { path: 'home',  component: LayoutPrincipalComponent,
-      loadChildren: 'app/areas/home/home.module#HomeModule'},
+      loadChildren: 'app/areas/home/home.module#HomeModule', canActivate: [AuthGuard]},
   { path: 'general',  component: LayoutPrincipalComponent,
-      loadChildren: 'app/areas/general/general.module#GeneralModule'},
+      loadChildren: 'app/areas/general/general.module#GeneralModule', canActivate: [AuthGuard]},
 
   // http-Codes
   { path: 'forbidden', component: ForbiddenComponent},
