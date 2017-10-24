@@ -27,11 +27,11 @@ export class LoginComponent implements OnInit {
 
   @FilterException
   submit() {
-    // this.loginModel.ValidateLogin();
+
     const model = { email: this.loginModel.controls['Email'].value,
     password: this.loginModel.controls['Password'].value };
 
-    this.svcAuth.login(model).subscribe(data => console.log(data));
+    this.svcAuth.login(model).subscribe(data => console.log('data'));
 
     // this.router.navigate(['/']);
   }

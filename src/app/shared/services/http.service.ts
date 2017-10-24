@@ -46,7 +46,7 @@ export class HttpService {
     const options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
 
     return this.http.post(url, JSON.stringify(model), options)
-      .map((res: Response) => res.json())
+      .map((res: Response) =>  res.json())
       .do((res: Response) => { }, (error: any) => { this.callbackError(error); })
       .finally(() => {
         this.onStop();
@@ -59,8 +59,12 @@ export class HttpService {
 
   @FilterException
   private callbackError(error: any): void {
-    const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
-    return validation.addValidation(new Exception.RuleValidationSimple(error.Message));
+    debugger;
+    const aux = error as Response;
+    console.log(aux);
+    console.log(error.Message);
+    // const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
+    // return validation.addValidation(new Exception.RuleValidationSimple());
   }
 
   private onStop() {
