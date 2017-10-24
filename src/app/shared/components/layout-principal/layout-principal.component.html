@@ -47,7 +47,7 @@
   <mz-dropdown [id]="'dropdown-user-app'" [belowOrigin]="true" [dropdownButtonId]="'btn-dropdown-user-app'" [gutter]="true"
     [outDuration]="300" [stopPropagation]="true">
     <mz-dropdown-item>
-      <a href="#" routerLink="/login">
+      <a href="#" (click)="logout()">
         <i mz-icon [icon]="'reply'"></i>
         Sair</a>
     </mz-dropdown-item>

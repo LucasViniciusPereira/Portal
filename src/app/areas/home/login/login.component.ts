@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.router.navigate(['/']);
+    const token = this.svcAuth.getTokenUser();
+    if (token != null) {
+      this.router.navigate(['/']);
+    }
   }
 
   @FilterException
@@ -31,12 +34,10 @@ export class LoginComponent implements OnInit {
     const model = { email: this.loginModel.controls['Email'].value,
     password: this.loginModel.controls['Password'].value };
 
-    this.svcAuth.login(model).subscribe(data => console.log('data'));
-
-    // this.router.navigate(['/']);
-  }
-
-  logout() {
-    this.router.navigate(['/login']);
+    this.svcAuth.login(model)
+    .subscribe(data => {
+      this.svcAuth.CreateTokenUser(data);
+      this.router.navigate(['/']);
+     });
   }
 }

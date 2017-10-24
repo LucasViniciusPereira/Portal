@@ -1,7 +1,15 @@
+import { HelperMessage } from './../class/helper-message';
 import { TokenService } from './token.service';
 import { AuthService } from './auth.service';
 import { Injectable } from '@angular/core';
-import { Headers, Http, RequestMethod, RequestOptions, RequestOptionsArgs, Response } from '@angular/http';
+import {
+  Headers,
+  Http,
+  RequestMethod,
+  RequestOptions,
+  RequestOptionsArgs,
+  Response
+} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -11,24 +19,30 @@ import 'rxjs/add/observable/throw';
 import { PreloaderService } from './../components/preloader/preloader.service';
 import { Exception } from './../class/exception-validation';
 import { FilterException } from '../decorators/filter-exception';
+import { Enumerations } from '../enumerators/enumerations';
+import { MzToastService } from 'ng2-materialize/dist';
 
 @Injectable()
 export class HttpService {
-
   constructor(
     private http: Http,
     private svcPreloader: PreloaderService,
     private svcToken: TokenService
-    // private svcAuth: AuthService
   ) { }
 
   get(url: string, params?: RequestOptionsArgs): Observable<any> {
     this.onStart();
 
-    return this.http.get(url, params)
+    return this.http
+      .get(url, params)
       .catch(this.callbackException)
       .map((response: Response) => <any>response.json())
-      .do((res: Response) => { }, (error: any) => { this.callbackError(error); })
+      .do(
+        (res: Response) => {},
+        (error: any) => {
+          this.callbackError(error);
+        }
+      )
       .finally(() => {
         this.onStop();
       });
@@ -43,11 +57,20 @@ export class HttpService {
       'Content-Type': 'application/json; charset=UTF-8',
       'X-TokenApp': tokenUser
     });
-    const options = new RequestOptions( {method: RequestMethod.Post, headers: headers });
+    const options = new RequestOptions({
+      method: RequestMethod.Post,
+      headers: headers
+    });
 
-    return this.http.post(url, JSON.stringify(model), options)
-      .map((res: Response) =>  res.json())
-      .do((res: Response) => { }, (error: any) => { this.callbackError(error); })
+    return this.http
+      .post(url, JSON.stringify(model), options)
+      .map((res: Response) => res.json())
+      .do(
+        (res: Response) => {},
+        (error: any) => {
+          this.callbackError(error);
+        }
+      )
       .finally(() => {
         this.onStop();
       });
@@ -57,14 +80,10 @@ export class HttpService {
     return;
   }
 
-  @FilterException
   private callbackError(error: any): void {
-    debugger;
-    const aux = error as Response;
-    console.log(aux);
-    console.log(error.Message);
-    // const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
-    // return validation.addValidation(new Exception.RuleValidationSimple());
+    const res = error._body;
+    return new HelperMessage(new MzToastService())
+      .showMessage(Enumerations.eTypeMessage.ERROR, [res]);
   }
 
   private onStop() {

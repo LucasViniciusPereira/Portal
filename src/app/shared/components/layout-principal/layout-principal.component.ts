@@ -1,5 +1,6 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout-principal',
@@ -8,8 +9,19 @@ declare var $: any;
 })
 export class LayoutPrincipalComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private svcAuth: AuthService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    const isLogged = this.svcAuth.logout();
+
+    if (isLogged === false) {
+      this.router.navigate(['/']);
+    }
   }
 }

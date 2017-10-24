@@ -22,12 +22,12 @@ export class HelperMessage {
         break;
       case Enumerations.eTypeMessage.ERROR:
         message.forEach(element => {
-          this.ShowSnackBar(element.message, 'message-error');
+          this.ShowSnackBar(message, 'message-error');
         });
         break;
       case Enumerations.eTypeMessage.INFO:
         message.forEach(element => {
-          this.ShowSnackBar(element.message, 'message-info');
+          this.ShowSnackBar(message, 'message-info');
         });
         break;
       default:

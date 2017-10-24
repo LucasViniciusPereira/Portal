@@ -1,3 +1,4 @@
+import { HelperMessage } from './shared/class/helper-message';
 import { TokenService } from './shared/services/token.service';
 import { HttpService } from './shared/services/http.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -48,7 +49,8 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
     TokenService,
     AuthService,
     AuthGuard,
-    PreloaderService
+    PreloaderService,
+    HelperMessage
   ],
   bootstrap: [AppComponent]
 })
