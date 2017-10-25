@@ -13,7 +13,11 @@ export class TokenService {
   }
 
   getTokenUser(): any {
-    return window.localStorage.getItem(this.tokenName);
+    let token = window.localStorage.getItem(this.tokenName);
+    if (token != null) {
+      return token.replace(/[\\"]/g, '');
+    }
+    return token;
   }
 
   DeleteTokenUser() {

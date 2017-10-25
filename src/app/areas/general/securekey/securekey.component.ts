@@ -34,7 +34,6 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private loadData() {
-    // console.log(this.filterModel.controls);
     const params = {};
 
     this.svcSecureKey

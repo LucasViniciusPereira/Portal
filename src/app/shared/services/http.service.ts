@@ -33,9 +33,11 @@ export class HttpService {
   get(url: string, params?: RequestOptionsArgs): Observable<any> {
     this.onStart();
 
+    const options = this.headerRequest();
+
     return this.http
-      .get(url, params)
-      .catch(this.callbackException)
+      .get(url, options)
+      // .catch(this.callbackException)
       .map((response: Response) => <any>response.json())
       .do(
         (res: Response) => {},
@@ -51,16 +53,7 @@ export class HttpService {
   post(url: string, model: any): Observable<any> {
     this.onStart();
 
-    // Token user application
-    const tokenUser = this.svcToken.getTokenUser();
-    const headers = new Headers({
-      'Content-Type': 'application/json; charset=UTF-8',
-      'X-TokenApp': tokenUser
-    });
-    const options = new RequestOptions({
-      method: RequestMethod.Post,
-      headers: headers
-    });
+    const options = this.headerRequest();
 
     return this.http
       .post(url, JSON.stringify(model), options)
@@ -76,7 +69,23 @@ export class HttpService {
       });
   }
 
+  private headerRequest(): RequestOptions {
+    // Token user application
+    const tokenUser = this.svcToken.getTokenUser();
+    const headers = new Headers({
+      'Content-Type': 'application/json; charset=UTF-8',
+      'X-TokenApp': tokenUser
+    });
+    const options = new RequestOptions({
+      // method: RequestMethod.Post,
+      headers: headers
+    });
+
+    return options;
+  }
+
   private callbackException(): Observable<any> {
+    console.log('Tratar exception');
     return;
   }
 

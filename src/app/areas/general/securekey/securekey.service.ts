@@ -14,7 +14,7 @@ export class SecurekeyService {
   ) { }
 
   getSecureKeys(params: any): Observable<Array<SecureKeyListModel>> {
-    const url = 'http://www.mocky.io/v2/59ce2a5c110000bb03cccd41';
+    const url = 'http://api.portal.lucasvinicius.net/key';
 
     return this.svcHttp.get(url);
   }

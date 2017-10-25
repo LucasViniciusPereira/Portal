@@ -29,6 +29,7 @@ export class AuthService extends TokenService {
     return this.svcHttp.post(url, params);
   }
 
+
   logout(): boolean {
     this.DeleteTokenUser();
     return this.getTokenUser();
