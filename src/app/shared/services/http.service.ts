@@ -37,14 +37,8 @@ export class HttpService {
 
     return this.http
       .get(url, options)
-      // .catch(this.callbackException)
-      .map((response: Response) => <any>response.json())
-      .do(
-        (res: Response) => {},
-        (error: any) => {
-          this.callbackError(error);
-        }
-      )
+      .map((response: Response) => response.json())
+      .catch(this.callbackError)
       .finally(() => {
         this.onStop();
       });
@@ -58,12 +52,13 @@ export class HttpService {
     return this.http
       .post(url, JSON.stringify(model), options)
       .map((res: Response) => res.json())
-      .do(
-        (res: Response) => {},
-        (error: any) => {
-          this.callbackError(error);
-        }
-      )
+
+      // .do(
+      //   (res: Response) => {},
+      //   (error: any) => {
+      //     this.callbackError(error);
+      //   }
+      // )
       .finally(() => {
         this.onStop();
       });
@@ -84,15 +79,15 @@ export class HttpService {
     return options;
   }
 
-  private callbackException(): Observable<any> {
-    console.log('Tratar exception');
-    return;
-  }
+  private callbackError(error: Response | any) {
+    return  Observable.throw(error.json());
 
-  private callbackError(error: any): void {
-    const res = error._body;
-    return new HelperMessage(new MzToastService())
-      .showMessage(Enumerations.eTypeMessage.ERROR, [res]);
+   // throw new Error('This request has failed ' + error.status);
+
+    // const res = error._body;
+    // return  Observable.throw(new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [res]));
+    // return new HelperMessage(new MzToastService())
+    //   .showMessage(Enumerations.eTypeMessage.ERROR, [res]);
   }
 
   private onStop() {
