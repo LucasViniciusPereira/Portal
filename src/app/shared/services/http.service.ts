@@ -30,14 +30,17 @@ export class HttpService {
     private svcToken: TokenService
   ) { }
 
-  get(url: string, params?: RequestOptionsArgs): Observable<any> {
+  get(url: string, params?: any): Observable<any> {
     this.onStart();
 
-    const options = this.headerRequest();
+    const options = this.setHeaderRequest();
 
     return this.http
-      .get(url, options)
-      .map((response: Response) => response.json())
+      .get(url, { search: params, headers: options })
+      .map((response: Response) => {
+        this.callbackSuccess(response);
+        return response.json();
+      })
       .catch(this.callbackError)
       .finally(() => {
         this.onStop();
@@ -47,47 +50,39 @@ export class HttpService {
   post(url: string, model: any): Observable<any> {
     this.onStart();
 
-    const options = this.headerRequest();
+    const options = this.setHeaderRequest();
 
     return this.http
-      .post(url, JSON.stringify(model), options)
+      .post(url, JSON.stringify(model), { headers: options})
       .map((res: Response) => res.json())
-
-      // .do(
-      //   (res: Response) => {},
-      //   (error: any) => {
-      //     this.callbackError(error);
-      //   }
-      // )
+      .catch(this.callbackError)
       .finally(() => {
         this.onStop();
       });
   }
 
-  private headerRequest(): RequestOptions {
+  private setHeaderRequest(): Headers {
     // Token user application
     const tokenUser = this.svcToken.getTokenUser();
     const headers = new Headers({
       'Content-Type': 'application/json; charset=UTF-8',
       'X-TokenApp': tokenUser
     });
-    const options = new RequestOptions({
-      // method: RequestMethod.Post,
-      headers: headers
-    });
 
-    return options;
+    return headers;
   }
 
   private callbackError(error: Response | any) {
-    return  Observable.throw(error.json());
+    const msg = error.json().Message || error.json();
+    new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
+    return Observable.throw(msg);
+  }
 
-   // throw new Error('This request has failed ' + error.status);
-
-    // const res = error._body;
-    // return  Observable.throw(new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [res]));
-    // return new HelperMessage(new MzToastService())
-    //   .showMessage(Enumerations.eTypeMessage.ERROR, [res]);
+  private callbackSuccess(data: Response | any) {
+    const msg = data.json().Message || data.json();
+    if (data.status === 200 && msg.length <= 0) {
+      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.INFO, ['Nenhum item foi encontrado.']);
+    }
   }
 
   private onStop() {

@@ -16,6 +16,10 @@ export class SecurekeyService {
   getSecureKeys(params: any): Observable<Array<SecureKeyListModel>> {
     const url = 'http://api.portal.lucasvinicius.net/key';
 
+    // const data: URLSearchParams = new URLSearchParams();
+    // params.set('appid', );
+    // params.set('cnt', days.toString());
+
     return this.svcHttp.get(url);
   }
 
