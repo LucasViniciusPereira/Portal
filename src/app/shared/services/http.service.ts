@@ -86,8 +86,14 @@ export class HttpService {
   }
 
   private callbackError(error: Response | any) {
-    const msg = error.json().Message || error.json();
-    new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
+    let msg = '';
+    if (error.status === 0) {
+      msg = 'Problema no servidor, se encontra em manutenção.';
+      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
+    } else {
+      msg = error.json().Message || error.json();
+      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
+    }
     return Observable.throw(msg);
   }
 
