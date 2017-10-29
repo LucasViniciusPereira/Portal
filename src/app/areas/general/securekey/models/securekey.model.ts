@@ -6,6 +6,9 @@ export class SecureKeyModel {
   Description = [null, Validators.required];
   Url = [null, Validators.required];
   DateRefresh = [null, Validators.required];
+  TypeKey = [null, Validators.required];
+  Type = [null, Validators.nullValidator];
+  Login = [null, Validators.required];
   Password = [null, Validators.required];
 
   constructor(

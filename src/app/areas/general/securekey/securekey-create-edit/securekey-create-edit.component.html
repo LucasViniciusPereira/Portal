@@ -10,17 +10,30 @@
     <form [formGroup]="secureKeyModel" (ngSubmit)="save()">
       <div class="row">
         <div class="input-field col s12">
-          <label for="txtDescription" class="active">Descrição</label>
+          <label for="txtDescription">Descrição</label>
           <input id="txtDescription" type="text" class="form-control" formControlName="Description" />
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <label for="txtUrl" class="active">Url</label>
-          <input id="txtUrl" type="text" class="form-control" formControlName="Url" />
+          <mz-select-container>
+            <select mz-select [placeholder]="'Selecione o login'" formControlName="TypeKey" >
+              <option *ngFor="let item of listTypeKeys" [ngValue]="item.key">{{ item.Value }}</option>
+            </select>
+          </mz-select-container>
         </div>
         <div class="input-field col s6">
-          <label for="txtPassword" class="active">Senha</label>
+          <label for="txtUrl">Url</label>
+          <input id="txtUrl" type="text" class="form-control" formControlName="Url" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <label for="txtUrl">Login</label>
+          <input id="txtUrl" type="text" class="form-control" formControlName="Login" />
+        </div>
+        <div class="input-field col s6">
+          <label for="txtPassword">Senha</label>
           <input id="txtPassword" type="text" class="form-control" formControlName="Password" />
         </div>
       </div>
@@ -28,9 +41,9 @@
 
   </mz-modal-content>
   <mz-modal-footer>
-    <button class="waves-effect btn-flat text-blue" mz-modal-close [disabled]="!isValidCustom()" (click)="save()">
-        <i class="material-icons left">save</i>Salvar</button>
+    <button class="waves-effect btn-flat text-blue" [disabled]="!isValidCustom()" (click)="save()">
+      <i class="material-icons left">save</i>Salvar</button>
     <button class="waves-effect btn-flat" mz-modal-close>
-        <i class="material-icons left">clear</i>Fechar</button>
+      <i class="material-icons left">clear</i>Fechar</button>
   </mz-modal-footer>
 </mz-modal>

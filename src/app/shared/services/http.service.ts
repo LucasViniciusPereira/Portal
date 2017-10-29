@@ -54,11 +54,24 @@ export class HttpService {
 
     return this.http
       .post(url, JSON.stringify(model), { headers: options})
-      .map((res: Response) => res.json())
+      .map((res: Response) => res.text() ? res.json() : res)
       .catch(this.callbackError)
       .finally(() => {
         this.onStop();
       });
+  }
+
+  delete(url: string, id: any): Observable<any> {
+    this.onStart();
+
+    const options = this.setHeaderRequest();
+
+   return this.http.delete( url + '/' + id, { headers: options })
+    .map((res: Response) => res.text() ? res.json() : res)
+    .catch(this.callbackError)
+    .finally(() => {
+      this.onStop();
+    });
   }
 
   private setHeaderRequest(): Headers {

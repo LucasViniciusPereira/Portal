@@ -6,6 +6,8 @@ import { FilterException } from '../../../../shared/decorators/filter-exception'
 import { HelperMessage } from '../../../../shared/class/helper-message';
 import { Enumerations } from '../../../../shared/enumerators/enumerations';
 import { SecurekeyService } from '../securekey.service';
+import { KeyValue } from '../../../../shared/class/key-value';
+declare var Materialize: any;
 
 @Component({
   selector: 'app-securekey-create-edit',
@@ -15,6 +17,7 @@ import { SecurekeyService } from '../securekey.service';
 export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, OnDestroy {
 
   secureKeyModel = this.fb.group(new SecureKeyModel(this.fb));
+  listTypeKeys = new Array<KeyValue>();
 
     constructor(
       private svcSecureKey: SecurekeyService,
@@ -27,6 +30,11 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
     ngOnInit() {
       // Assing properties
       this.secureKeyModel.patchValue(this.model || '');
+    }
+
+    // tslint:disable-next-line:use-life-cycle-interface
+    ngAfterViewChecked() {
+      Materialize.updateTextFields();
     }
 
     ngOnDestroy() {
@@ -47,7 +55,11 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
           ['Há Campos obrigatórios que não foram preenchidos.']);
       }
 
-      // this.svcSecureKey.
-      alert('Implementar metodo de salvar');
+      // Validation ModelState
+      if (this.secureKeyModel.controls['KeyID'].value <= 0) {
+        this.secureKeyModel.controls['KeyID'].setValue(0);
+      }
+      this.svcSecureKey.postSecureKey(this.secureKeyModel.value)
+      .subscribe((data: any) => console.log(data));
     }
   }

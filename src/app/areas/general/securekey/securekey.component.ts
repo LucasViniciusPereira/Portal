@@ -11,13 +11,15 @@ import { Enumerations } from './../../../shared/enumerators/enumerations';
 import { FilterException } from '../../../shared/decorators/filter-exception';
 import { Exception } from '../../../shared/class/exception-validation';
 import { FormBuilder } from '@angular/forms';
+import { KeyValue } from '../../../shared/class/key-value';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-securekey',
   templateUrl: './securekey.component.html',
   styleUrls: ['./securekey.component.css']
 })
-export class SecurekeyComponent implements OnInit {
+export class SecurekeyComponent implements OnInit, OnDestroy {
 
   private lstSecureKeys: Array<SecureKeyListModel> = new Array<any>();
   private filterModel = this.fb.group(new SecureKeyFilterModel(this.fb));
@@ -33,8 +35,12 @@ export class SecurekeyComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+
+  }
+
   private loadData() {
-    const params = {};
+    const params = this.filterModel.value;
 
     this.svcSecureKey
       .getSecureKeys(params)
@@ -44,18 +50,21 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private view(item: SecureKeyListModel) {
-    const params = {};
 
-    this.svcSecureKey.getSecureKey(null).subscribe((data: SecureKeyModel) => {
+    this.svcSecureKey.getSecureKey(item.KeyID).subscribe((data: SecureKeyModel) => {
       this.modalService.open(SecurekeyDetailsComponent, { model: data });
     });
   }
 
   private edit(item: SecureKeyListModel) {
-    const params = {};
+    const key = this.svcSecureKey.getSecureKey(item.KeyID);
+    const list = this.svcSecureKey.getTypeKeys();
 
-    this.svcSecureKey.getSecureKey(null).subscribe((data: SecureKeyModel) => {
-      this.modalService.open(SecurekeyCreateEditComponent, { model: data });
+    Observable.forkJoin([key, list]).subscribe(results => {
+      this.modalService.open(SecurekeyCreateEditComponent, {
+        model: results[0],
+        listTypeKeys: results[1]
+      });
     });
   }
 
@@ -64,20 +73,8 @@ export class SecurekeyComponent implements OnInit {
   }
 
   private create() {
-    this.modalService.open(SecurekeyCreateEditComponent, { model: null });
+    this.svcSecureKey.getTypeKeys().subscribe((data: any) => {
+      this.modalService.open(SecurekeyCreateEditComponent, { model: null, listTypeKeys: data });
+    });
   }
-
-  // @FilterException
-  // teste() {
-  //   const aux = null;
-  //   aux.pro = null;
-  //   console.log(aux.pro);
-
-  //   const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
-  //   validation.addValidation(new Exception.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
-
-  //   if (validation.hasValidation) {
-  //     return validation;
-  //   }
-  // }
 }

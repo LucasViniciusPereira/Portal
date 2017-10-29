@@ -1,6 +1,8 @@
 <mz-modal>
   <mz-modal-header>
     <h5 class="title-modal-custom">
+      {{ secureKeyModel.controls.KeyID.value }}
+      <small> - </small>
       {{ secureKeyModel.controls.Description.value }}
     </h5>
     <hr class="grey lighten-4">
@@ -9,18 +11,18 @@
 
     <div class="row">
       <div class="input-field col s6">
-        <label class="active">Identificador</label>
-        <span>{{ secureKeyModel.controls.KeyID.value }}</span>
+        <label class="active">Url</label>
+        <span>{{ secureKeyModel.controls.Url.value }}</span>
       </div>
       <div class="input-field col s6">
-        <label class="active">Descrição</label>
-        <span>{{ secureKeyModel.controls.Description.value }}</span>
+        <label class="active">Tipo de login</label>
+        <span>{{ secureKeyModel.controls.Type.value }}</span>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s6">
-        <label class="active">Url</label>
-        <span>{{ secureKeyModel.controls.Url.value }}</span>
+        <label class="active">Login</label>
+        <span>{{ secureKeyModel.controls.Login.value }}</span>
       </div>
       <div class="input-field col s6">
         <label class="active">Senha</label>
