@@ -18,8 +18,7 @@ export class SecurekeyService {
   ) { }
 
   getSecureKeys(data: any): Observable<Array<SecureKeyListModel>> {
-    // const url = 'http://api.portal.lucasvinicius.net/key';
-    const url = 'http://localhost:51214/key';
+    const url = 'key';
 
     const params: URLSearchParams = new URLSearchParams();
     if (data.Description) {
@@ -33,7 +32,7 @@ export class SecurekeyService {
   }
 
   getSecureKey(id: number): Observable<SecureKeyModel> {
-    const url = 'http://localhost:51214/key';
+    const url = 'key';
 
     const params: URLSearchParams = new URLSearchParams();
     params.set('id', id.toString());
@@ -48,13 +47,13 @@ export class SecurekeyService {
   }
 
   deleteKey(id: number): Observable<any> {
-    const url = 'http://localhost:51214/key';
+    const url = 'key';
 
     return this.svcHttp.delete(url, id);
   }
 
   getTypeKeys(): Observable<Array<KeyValue>> {
-    const url = 'http://api.portal.lucasvinicius.net/key/gettypekeys';
+    const url = 'key/gettypekeys';
 
     return this.svcHttp.get(url);
   }

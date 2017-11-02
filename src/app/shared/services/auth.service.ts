@@ -24,11 +24,10 @@ export class AuthService extends TokenService {
   }
 
   login(params: any): Observable<any> {
-    const url = 'http://api.portal.lucasvinicius.net/login';
+    const url = 'login';
 
     return this.svcHttp.post(url, params);
   }
-
 
   logout(): boolean {
     this.DeleteTokenUser();

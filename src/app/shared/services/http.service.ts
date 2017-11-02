@@ -1,3 +1,4 @@
+import { environment } from '../../../environments/environment';
 import { HelperMessage } from './../class/helper-message';
 import { TokenService } from './token.service';
 import { AuthService } from './auth.service';
@@ -31,6 +32,8 @@ export class HttpService {
   ) { }
 
   get(url: string, params?: any): Observable<any> {
+    url = `${environment.BaseUrl + url}`;
+
     this.onStart();
 
     const options = this.setHeaderRequest();
@@ -48,6 +51,8 @@ export class HttpService {
   }
 
   post(url: string, model: any): Observable<any> {
+    url = `${environment.BaseUrl + url}`;
+
     this.onStart();
 
     const options = this.setHeaderRequest();
@@ -62,6 +67,8 @@ export class HttpService {
   }
 
   delete(url: string, id: any): Observable<any> {
+    url = `${environment.BaseUrl + url}`;
+
     this.onStart();
 
     const options = this.setHeaderRequest();
