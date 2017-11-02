@@ -23,7 +23,7 @@ export function FilterException(
       const result = originalMethod.apply(this, args);
 
       if (result && <Exception.BusinessValidation>result) {
-        return new HelperMessage(new MzToastService())
+        return new HelperMessage()
               .showMessage(Enumerations.eTypeMessage.ERROR, result.validations);
       }
 
@@ -31,7 +31,7 @@ export function FilterException(
         return result;
       }
     } catch (e) {
-      return new HelperMessage(new MzToastService())
+      return new HelperMessage()
         .showMessage(Enumerations.eTypeMessage.WARNING, [`Erro na aplicação: ${e.message}`]);
     }
   };

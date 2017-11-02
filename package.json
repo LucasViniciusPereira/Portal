@@ -26,6 +26,7 @@
     "jquery": "^3.2.1",
     "materialize-css": "^0.100.2",
     "mdi": "^2.0.46",
+    "ng2-izitoast": "0.0.2",
     "ng2-materialize": "^1.5.2",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"

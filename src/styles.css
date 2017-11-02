@@ -37,10 +37,13 @@ hr {
 .title-modal-custom{ margin-bottom: -5px;}
 i.left{margin-right: 5px;}
 
-.message-warning{ background-color: gray; }
-.message-success{ background-color: green; }
-.message-error{ background-color: red; }
-.message-info{ background-color: blue; }
+.iziToast-body b { font-weight: 600; }
+.iziToast-body{ padding-left: 15px !important; }
+.message-success .iziToast-cover { background-color: #43A047; }
+.message-error .iziToast-cover { background-color: #FF3D00; }
+.message-info .iziToast-cover { background-color: #039BE5; }
+.message-warning .iziToast-cover { background-color: #FFAB00; }
+
 .text-blue { color: #0d47a1; }
 .text-red { color: #e53935; }
 .modal-popup .modal { max-height: 60%; width: 30%; top: 25% !important;}

@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
+import { Ng2IziToastModule } from 'ng2-izitoast';
 
 // Modules
 import { AppRoutingModule } from './app.routing.module';
@@ -42,6 +43,7 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2IziToastModule,
     MaterializeModule.forRoot()
   ],
   providers: [

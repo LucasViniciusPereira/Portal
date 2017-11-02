@@ -28,7 +28,8 @@ export class HttpService {
   constructor(
     private http: Http,
     private svcPreloader: PreloaderService,
-    private svcToken: TokenService
+    private svcToken: TokenService,
+    // private helperMessage: HelperMessage
   ) { }
 
   get(url: string, params?: any): Observable<any> {
@@ -96,18 +97,20 @@ export class HttpService {
     let msg = '';
     if (error.status === 0) {
       msg = 'Problema no servidor, se encontra em manutenção.';
-      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
     } else {
       msg = error.json().Message || error.json();
-      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
     }
+
+    new HelperMessage().showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
     return Observable.throw(msg);
   }
 
   private callbackSuccess(data: Response | any) {
     const msg = data.json().Message || data.json();
+
+    // se não encontrar nenhum dado
     if (data.status === 200 && msg.length <= 0) {
-      new HelperMessage(new MzToastService()).showMessage(Enumerations.eTypeMessage.INFO, ['Nenhum item foi encontrado.']);
+      new HelperMessage().showMessage(Enumerations.eTypeMessage.INFO, ['Nenhum item foi encontrado.']);
     }
   }
 

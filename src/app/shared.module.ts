@@ -1,5 +1,6 @@
 import { TokenService } from './shared/services/token.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2IziToastModule } from 'ng2-izitoast';
 
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,7 @@ import { MaterializeModule } from 'ng2-materialize';
 
 import { HttpService } from './shared/services/http.service';
 import { AuthGuard } from './guards/auth.guard';
+import { HelperMessage } from './shared/class/helper-message';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { AuthGuard } from './guards/auth.guard';
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2IziToastModule,
     MaterializeModule.forRoot()
   ],
   exports: [
@@ -27,6 +30,7 @@ import { AuthGuard } from './guards/auth.guard';
   ],
   providers: [
     HttpService,
+    HelperMessage,
     AuthGuard,
     TokenService
   ]
