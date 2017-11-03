@@ -11,13 +11,15 @@
             <small>Sistema para gestão pessoal</small>
           </div>
           <div class="row">
-            <div class="input-field col s12">
-              <label for="txtEmail">Email</label>
-              <input id="txtEmail" type="email" class="validate" formControlName="Email" />
+            <div class="form-group input-field col s12">
+              <label class="control-label" for="txtEmail">Email</label>
+              <input id="txtEmail" type="email"  class="form-control validate" formControlName="Email" />
+              <display-validation [control]="loginModel.controls.Email"></display-validation>
             </div>
-            <div class="input-field col s12">
-              <label for="txtPassword">Senha </label>
-              <input id="txtPassword" type="password" class="validate" formControlName="Password" />
+            <div class="form-group input-field col s12">
+              <label class="control-label" for="txtPassword">Senha </label>
+              <input id="txtPassword" type="password" minlength="6" class="form-control validate" formControlName="Password" />
+              <display-validation [control]="loginModel.controls.Password"></display-validation>
             </div>
           </div>
         </div>

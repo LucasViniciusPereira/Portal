@@ -18,6 +18,7 @@ import { NotfoundComponent } from './shared/components/http-codes/404-not-found/
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
+import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
 // Providers
 import { AuthGuard } from './guards/auth.guard';
@@ -27,6 +28,7 @@ import { HelperMessage } from './shared/class/helper-message';
 import { TokenService } from './shared/services/token.service';
 import { HttpService } from './shared/services/http.service';
 import { BaseHttpService } from './shared/services/base.http.service';
+import { DisplayValidationService } from './shared/services/display.validation.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { BaseHttpService } from './shared/services/base.http.service';
     LayoutPrincipalComponent,
     NotfoundComponent,
     ForbiddenComponent,
-    PreloaderComponent
+    PreloaderComponent,
+    DisplayValidationComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { BaseHttpService } from './shared/services/base.http.service';
     AuthService,
     AuthGuard,
     PreloaderService,
-    HelperMessage
+    HelperMessage,
+    DisplayValidationService
   ],
   bootstrap: [AppComponent]
 })
