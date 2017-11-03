@@ -60,6 +60,7 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
         this.secureKeyModel.controls['KeyID'].setValue(0);
       }
       this.svcSecureKey.postSecureKey(this.secureKeyModel.value)
-      .subscribe((data: any) => console.log(data));
+      .subscribe((data: any) => this.helperMessage.showMessage(Enumerations.eTypeMessage.SUCCESS,
+        ['Registro salvo com sucesso.']));
     }
   }

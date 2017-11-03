@@ -51,7 +51,7 @@ export class SecurekeyService {
   }
 
   postSecureKey(model: SecureKeyModel): Observable<any> {
-    const url = 'http://localhost:51214/key';
+    const url = 'key';
 
     return this.svcHttp.post(url, model);
   }

@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BaseModal } from '../../../../shared/class/base-modal';
 import { FilterException } from '../../../../shared/decorators/filter-exception';
 import { SecurekeyService } from '../securekey.service';
+import { HelperMessage } from '../../../../shared/class/helper-message';
+import { Enumerations } from '../../../../shared/enumerators/enumerations';
 
 @Component({
   selector: 'app-securekey-delete',
@@ -11,7 +13,8 @@ import { SecurekeyService } from '../securekey.service';
 export class SecurekeyDeleteComponent extends BaseModal implements OnInit, OnDestroy {
 
   constructor(
-    private svcSecureKey: SecurekeyService
+    private svcSecureKey: SecurekeyService,
+    private helperMessage: HelperMessage,
   ) {
     super();
   }
@@ -25,6 +28,7 @@ export class SecurekeyDeleteComponent extends BaseModal implements OnInit, OnDes
   @FilterException
   delete() {
     this.svcSecureKey.deleteKey(this.model.KeyID)
-    .subscribe((data: any) => console.log(data));
+    .subscribe((data: any) => this.helperMessage.showMessage(Enumerations.eTypeMessage.SUCCESS,
+      ['O registro foi excluido com sucesso.']));
   }
 }
