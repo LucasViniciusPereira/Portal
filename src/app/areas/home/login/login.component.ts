@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { AuthService } from './../../../shared/services/auth.service';
 import { FilterException } from '../../../shared/decorators/filter-exception';
+declare var $: any;
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     const token = this.svcAuth.getTokenUser();
     if (token != null) {
       this.router.navigate(['/']);

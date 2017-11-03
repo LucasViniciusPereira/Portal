@@ -6,11 +6,19 @@
       <!-- Botões -->
       <div class="fixed-action-btn horizontal btn-filter">
         <a class="btn-floating waves-effect waves-light btn-large pulse2 red">
-              <i class="material-icons">menu</i>
-            </a>
+          <i class="material-icons">menu</i>
+        </a>
         <ul>
-          <li><a class="btn-floating waves-effect waves-light blue" (click)="create()"><i class="material-icons">add</i></a></li>
-          <li><a class="btn-floating waves-effect waves-light green" (click)="loadData()"><i class="material-icons">search</i></a></li>
+          <li>
+            <a class="btn-floating waves-effect waves-light blue" (click)="create()">
+              <i class="material-icons">add</i>
+            </a>
+          </li>
+          <li>
+            <a class="btn-floating waves-effect waves-light green" (click)="loadData()">
+              <i class="material-icons">search</i>
+            </a>
+          </li>
           <!-- <li><a class="btn-floating waves-effect waves-light green"><i class="material-icons">publish</i></a></li>
           <li><a class="btn-floating waves-effect waves-light blue"><i class="material-icons">attach_file</i></a></li> -->
         </ul>
@@ -43,7 +51,8 @@
     <!-- Grid -->
     <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0">
       <div class="card-content">
-        <table class="bordered highlight responsive-table">
+        <div [ngClass]="{ 'spinner': loading }"></div>
+        <table class="bordered highlight responsive-table" [ngClass]="{ 'loading': loading }">
           <thead>
             <tr>
               <th>Descrição</th>
@@ -52,28 +61,38 @@
               <th></th>
             </tr>
           </thead>
-
           <tbody>
-            <tr *ngFor="let item of lstSecureKeys; let i = index">
+            <tr *ngFor="let item of lstSecureKeys | paginate: {  id: 'pagination', itemsPerPage: pageSize, currentPage: pageIndex, totalItems: totalItems} let i = index">
               <td> {{ item.Description }} </td>
               <td> {{ item.Url }} </td>
               <td> {{ item.DateRefresh }}</td>
               <td>
                 <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
                   [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
-                  <mz-dropdown-item><a href="javascript:void(0)" (click)="view(item)"><i class="material-icons">visibility</i>Visualizar</a></mz-dropdown-item>
-                  <mz-dropdown-item><a href="javascript:void(0)" (click)="edit(item)"><i class="material-icons">create</i>Editar</a></mz-dropdown-item>
-                  <mz-dropdown-item><a href="javascript:void(0)" (click)="delete(item)"><i class="material-icons">delete</i>Excluir</a></mz-dropdown-item>
+                  <mz-dropdown-item>
+                    <a href="javascript:void(0)" (click)="view(item)">
+                      <i class="material-icons">visibility</i>Visualizar</a>
+                  </mz-dropdown-item>
+                  <mz-dropdown-item>
+                    <a href="javascript:void(0)" (click)="edit(item)">
+                      <i class="material-icons">create</i>Editar</a>
+                  </mz-dropdown-item>
+                  <mz-dropdown-item>
+                    <a href="javascript:void(0)" (click)="delete(item)">
+                      <i class="material-icons">delete</i>Excluir</a>
+                  </mz-dropdown-item>
                 </mz-dropdown>
                 <div class="right hide-on-med-and-down">
-                  <a class="btn-grid-group waves-effect waves-light" [id]="'btn-dropdown' + i"><i class="material-icons">more_vert</i></a>
+                  <a class="btn-grid-group waves-effect waves-light" [id]="'btn-dropdown' + i">
+                    <i class="material-icons">more_vert</i>
+                  </a>
                 </div>
               </td>
             </tr>
           </tbody>
         </table>
+        <pagination-controls id="pagination" (pageChange)="pageChange(pageIndex = $event)" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
       </div>
     </div>
   </div>
 </div>
-<!-- <a (click)="teste()">clice aqui</a> -->

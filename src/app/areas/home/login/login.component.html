@@ -1,26 +1,33 @@
-<div class="valign-wrapper row login-box">
-  <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-    <form [formGroup]="loginModel">
-      <div class="card-content">
-        <div class="center">
-          <span class="card-title" style="margin-bottom: 0px;">Portal</span>
-          <small>Sistema para gestão pessoal</small>
-        </div>
-        <div class="row">
-          <div class="input-field col s12">
-            <label for="txtEmail">Email</label>
-            <input id="txtEmail" type="email" class="validate" formControlName="Email" />
+<div id="bgvid"></div>
+
+<!-- Card Login -->
+<div id="bgvid_opacity">
+  <div class="valign-wrapper row login-box">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
+      <form [formGroup]="loginModel">
+        <div class="card-content">
+          <div class="center">
+            <span class="card-title" style="margin-bottom: 0px;">Portal</span>
+            <small>Sistema para gestão pessoal</small>
           </div>
-          <div class="input-field col s12">
-            <label for="txtPassword">Senha </label>
-            <input id="txtPassword" type="password" class="validate" formControlName="Password" />
+          <div class="row">
+            <div class="input-field col s12">
+              <label for="txtEmail">Email</label>
+              <input id="txtEmail" type="email" class="validate" formControlName="Email" />
+            </div>
+            <div class="input-field col s12">
+              <label for="txtPassword">Senha </label>
+              <input id="txtPassword" type="password" class="validate" formControlName="Password" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="card-action center">
-        <button type="reset" class="waves-effect btn-flat grey-text">Redefinir</button>
-        <button  class="waves-effect waves-light btn" [disabled]="!loginModel.valid" (click)="submit()"><i class="material-icons left">play_arrow</i>Entrar</button >
-      </div>
-    </form>
+        <div class="card-action center">
+          <button type="reset" class="waves-effect btn-flat grey-text">Redefinir</button>
+          <button class="waves-effect waves-light btn" [disabled]="!loginModel.valid" (click)="submit()">
+            <i class="material-icons left">play_arrow</i>Entrar</button>
+        </div>
+      </form>
+    </div>
   </div>
+
 </div>

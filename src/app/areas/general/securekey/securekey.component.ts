@@ -1,6 +1,8 @@
+import { debug } from 'util';
 import { SecurekeyDeleteComponent } from './securekey-delete/securekey-delete.component';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
 import { MzModalService, MzToastService } from 'ng2-materialize/dist';
+import { PaginatePipe, PaginationService, PaginationControlsDirective } from 'ngx-pagination';
 
 import { SecureKeyModel, SecureKeyListModel, SecureKeyFilterModel } from './models/securekey.model';
 import { SecurekeyService } from './securekey.service';
@@ -14,6 +16,7 @@ import { FormBuilder } from '@angular/forms';
 import { KeyValue } from '../../../shared/class/key-value';
 import { Observable } from 'rxjs/Observable';
 
+
 @Component({
   selector: 'app-securekey',
   templateUrl: './securekey.component.html',
@@ -24,28 +27,48 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
   private lstSecureKeys: Array<SecureKeyListModel> = new Array<any>();
   private filterModel = this.fb.group(new SecureKeyFilterModel(this.fb));
 
+  // Model Paginator
+  private pageIndex = 1;
+  private pageSize = 10;
+  private totalItems = 0;
+  private loading = false;
+
   constructor(
     private svcSecureKey: SecurekeyService,
     private modalService: MzModalService,
     private toastService: MzToastService,
     private helperMessage: HelperMessage,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private pg: PaginationService
   ) { }
 
   ngOnInit() {
   }
 
   ngOnDestroy() {
-
   }
 
-  private loadData() {
+  protected pageChange(event) {
+    this.pageIndex = event;
+    this.loadData(false);
+  }
+
+  private loadData(hasPreloader: boolean = true) {
+    if (hasPreloader === false) {
+       this.loading = true;
+    }
+
     const params = this.filterModel.value;
+    params.PageIndex = this.pageIndex;
+    params.PageSize = this.pageSize;
 
     this.svcSecureKey
-      .getSecureKeys(params)
-      .subscribe((data: Array<SecureKeyListModel>) => {
-        this.lstSecureKeys = data;
+      .getSecureKeys(params, hasPreloader)
+      // .delay(1000)
+      .do(res => this.loading = false)
+      .subscribe((res: any) => {
+        this.totalItems = res.TotalItems;
+        this.lstSecureKeys = res.Data;
       });
   }
 

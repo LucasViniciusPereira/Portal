@@ -1,12 +1,10 @@
-import { HelperMessage } from './shared/class/helper-message';
-import { TokenService } from './shared/services/token.service';
-import { HttpService } from './shared/services/http.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { Ng2IziToastModule } from 'ng2-izitoast';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Modules
 import { AppRoutingModule } from './app.routing.module';
@@ -25,6 +23,10 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { PreloaderService } from './shared/components/preloader/preloader.service';
+import { HelperMessage } from './shared/class/helper-message';
+import { TokenService } from './shared/services/token.service';
+import { HttpService } from './shared/services/http.service';
+import { BaseHttpService } from './shared/services/base.http.service';
 
 @NgModule({
   declarations: [
@@ -44,10 +46,15 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
     FormsModule,
     ReactiveFormsModule,
     Ng2IziToastModule,
+    NgxPaginationModule,
     MaterializeModule.forRoot()
+  ],
+  exports: [
+    NgxPaginationModule
   ],
   providers: [
     HttpService,
+    BaseHttpService,
     TokenService,
     AuthService,
     AuthGuard,

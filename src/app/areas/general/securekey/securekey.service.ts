@@ -8,19 +8,25 @@ import { Router } from '@angular/router';
 import { HttpService } from '../../../shared/services/http.service';
 import { SecureKeyModel, SecureKeyListModel } from './models/securekey.model';
 import { HttpParams } from '@angular/common/http';
+import { BaseHttpService } from '../../../shared/services/base.http.service';
 
 @Injectable()
 export class SecurekeyService {
 
   constructor(
     private router: Router,
-    private svcHttp: HttpService
+    private svcHttp: HttpService,
+    private svcBaseHttp: BaseHttpService
   ) { }
 
-  getSecureKeys(data: any): Observable<Array<SecureKeyListModel>> {
+  getSecureKeys(data: any, hasPreloader: boolean): Observable<Array<SecureKeyListModel>> {
     const url = 'key';
 
+    // Paginator
     const params: URLSearchParams = new URLSearchParams();
+    params.set('PageIndex', data.PageIndex);
+    params.set('PageSize', data.PageSize);
+
     if (data.Description) {
       params.set('Description', data.Description);
     }
@@ -28,7 +34,11 @@ export class SecurekeyService {
       params.set('DateRefresh', data.DateRefresh);
     }
 
-    return this.svcHttp.get(url, params);
+    if (hasPreloader === false) {
+      return this.svcBaseHttp.get(url, params);
+    } else {
+      return this.svcHttp.get(url, params);
+    }
   }
 
   getSecureKey(id: number): Observable<SecureKeyModel> {
