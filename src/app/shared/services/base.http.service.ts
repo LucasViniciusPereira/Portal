@@ -76,6 +76,7 @@ export class BaseHttpService {
 
   protected callbackError(error: Response | any) {
     let msg = '';
+
     if (error.status === 0) {
       msg = 'Problema no servidor, se encontra em manutenção.';
     } else {

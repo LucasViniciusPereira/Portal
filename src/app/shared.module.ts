@@ -18,7 +18,7 @@ import { DisplayValidationService } from './shared/services/display.validation.s
 
 @NgModule({
   declarations: [
-    //DisplayValidationComponent
+    DisplayValidationComponent
   ],
   imports: [
     CommonModule,
@@ -34,13 +34,15 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    DisplayValidationComponent
   ],
   providers: [
     BaseHttpService,
     HttpService,
     HelperMessage,
     AuthGuard,
-    TokenService
+    TokenService,
+    DisplayValidationService
   ]
 })
 

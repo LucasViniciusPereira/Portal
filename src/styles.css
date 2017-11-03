@@ -130,6 +130,7 @@ input { margin: 0 0 10px 0 !important;}
 .form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
   font-size:15px;
 }
+.ngx-pagination .current {    background: #26a69a !important;}
 .modal-md .modal { width: 70%; min-height: 80%;  }
 .green-sys { color: #26a69a; }
 .nav-wrapper { background-color: #26a69a; }

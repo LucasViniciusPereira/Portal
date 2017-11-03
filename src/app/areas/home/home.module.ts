@@ -7,7 +7,6 @@ import { IndexHomeComponent } from './index/index-home.component';
 
 // Modules
 import { HomeRoutes } from './home.routes';
-
 import { AuthService } from './../../shared/services/auth.service';
 
 @NgModule({

@@ -1,10 +1,6 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HttpModule } from '@angular/http';
-import { Ng2IziToastModule } from 'ng2-izitoast';
-import { NgxPaginationModule } from 'ngx-pagination';
 
 // Modules
 import { AppRoutingModule } from './app.routing.module';
@@ -18,17 +14,12 @@ import { NotfoundComponent } from './shared/components/http-codes/404-not-found/
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
-import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
 // Providers
-import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './shared/services/auth.service';
 import { PreloaderService } from './shared/components/preloader/preloader.service';
-import { HelperMessage } from './shared/class/helper-message';
 import { TokenService } from './shared/services/token.service';
-import { HttpService } from './shared/services/http.service';
-import { BaseHttpService } from './shared/services/base.http.service';
-import { DisplayValidationService } from './shared/services/display.validation.service';
+import { SharedModule } from './shared.module';
 
 @NgModule({
   declarations: [
@@ -39,32 +30,20 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     NotfoundComponent,
     ForbiddenComponent,
     PreloaderComponent,
-    DisplayValidationComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    SharedModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule,
-    Ng2IziToastModule,
-    NgxPaginationModule,
     MaterializeModule.forRoot()
   ],
   exports: [
-    NgxPaginationModule,
-    //DisplayValidationService
   ],
   providers: [
-    HttpService,
-    BaseHttpService,
     TokenService,
     AuthService,
-    AuthGuard,
     PreloaderService,
-    HelperMessage,
-    DisplayValidationService
   ],
   bootstrap: [AppComponent]
 })
