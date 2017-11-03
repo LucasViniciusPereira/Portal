@@ -2,12 +2,18 @@
   <!-- Header menu -->
   <mz-sidenav-header>
     <div class="user-view">
-      <div class="background">
-        <!-- <img src="http://materializecss.com/images/office.jpg"> -->
+      <div class="background background-user">
+        <!-- <img src="http://cdn.lucasvinicius.net/images/background/bg_material_design.png"> -->
       </div>
-      <a href="#!user"><img class="circle" src="http://cdn.lucasvinicius.net/images/icon/user.png"></a>
-      <a href="#!name"><span class="white-text name">Usuário</span></a>
-      <a href="#!email"><span class="white-text email">E-mail</span></a>
+      <a href="#!user">
+        <img class="circle" src="http://cdn.lucasvinicius.net/images/icon/user.png">
+      </a>
+      <a href="#!name">
+        <span class="white-text name">Usuário</span>
+      </a>
+      <a href="#!email">
+        <span class="white-text email">E-mail</span>
+      </a>
     </div>
   </mz-sidenav-header>
 
@@ -17,42 +23,30 @@
   <!-- Links menu -->
   <mz-sidenav-link routerLinkActive="active">
     <a href="#" routerLink="/home/index">
-          <i mz-icon [icon]="'home'"></i>
-          Página Inicial
-      </a>
+      <i mz-icon [icon]="'home'"></i>
+      Página Inicial
+    </a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
   <mz-sidenav-link routerLinkActive="active">
     <a href="#" routerLink="/general/keys">
-        <i mz-icon [icon]="'vpn_key'"></i>
-        Guarda senhas
+      <i mz-icon [icon]="'vpn_key'"></i>
+      Guarda senhas
     </a>
   </mz-sidenav-link>
 </mz-sidenav>
 
 <mz-navbar>
   <a [id]="'btn-sidenav'" href="#" data-activates="slide-out" class="button-collapse" style="display: block;">
-        <i class="material-icons">menu</i>
+    <i class="material-icons">menu</i>
   </a>
-
   <mz-navbar-item-container [align]="'right'">
-    <mz-navbar-item>
-      <a href="#" id="btn-dropdown-user-app">
-          <i class="material-icons right">arrow_drop_down</i>Nome
-      </a>
-    </mz-navbar-item>
+      <mz-navbar-item>
+        <a href="#" (click)="logout()">
+          <i mz-icon [align]="'right'" [icon]="'forward'"></i>
+          Sair</a>
+      </mz-navbar-item>
   </mz-navbar-item-container>
-
-  <!-- Dropdown -->
-  <mz-dropdown [id]="'dropdown-user-app'" [belowOrigin]="true" [dropdownButtonId]="'btn-dropdown-user-app'" [gutter]="true"
-    [outDuration]="300" [stopPropagation]="true">
-    <mz-dropdown-item>
-      <a href="#" (click)="logout()">
-        <i mz-icon [icon]="'reply'"></i>
-        Sair</a>
-    </mz-dropdown-item>
-  </mz-dropdown>
-
 </mz-navbar>
 
 <div class="container margin-top-40">

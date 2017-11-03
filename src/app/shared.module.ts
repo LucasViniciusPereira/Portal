@@ -13,8 +13,12 @@ import { AuthGuard } from './guards/auth.guard';
 import { BaseHttpService } from './shared/services/base.http.service';
 import { HelperMessage } from './shared/class/helper-message';
 
+import { DisplayValidationComponent } from './shared/components/display.validation.component';
+import { DisplayValidationService } from './shared/services/display.validation.service';
+
 @NgModule({
   declarations: [
+    //DisplayValidationComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,7 @@ import { HelperMessage } from './shared/class/helper-message';
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [
     BaseHttpService,

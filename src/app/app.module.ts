@@ -53,7 +53,8 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     MaterializeModule.forRoot()
   ],
   exports: [
-    NgxPaginationModule
+    NgxPaginationModule,
+    //DisplayValidationService
   ],
   providers: [
     HttpService,

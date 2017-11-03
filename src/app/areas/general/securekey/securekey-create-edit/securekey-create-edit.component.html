@@ -1,4 +1,4 @@
-<mz-modal>
+<mz-modal class="modal-md" [fixedFooter]="true">
   <mz-modal-header>
     <h5 class="title-modal-custom">
       Guarda senha
@@ -11,37 +11,44 @@
       <div class="row">
         <div class="input-field col s12">
           <label for="txtDescription">Descrição</label>
-          <input id="txtDescription" type="text" class="form-control" formControlName="Description" />
+          <input mz-input mz-validation required data-length="150" id="txtDescription" type="text" class="form-control" formControlName="Description" />
+          <display-validation [control]="secureKeyModel.controls.Description"></display-validation>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
           <mz-select-container>
-            <select mz-select [placeholder]="'Selecione o login'" formControlName="TypeKey" >
+            <select mz-select mz-validation required [placeholder]="'Selecione o login'" formControlName="TypeKey">
               <option *ngFor="let item of listTypeKeys" [ngValue]="item.key">{{ item.Value }}</option>
             </select>
+            <!-- <display-validation [control]="secureKeyModel.controls.TypeKey"></display-validation> -->
           </mz-select-container>
         </div>
-        <div class="input-field col s6">
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
           <label for="txtUrl">Url</label>
-          <input id="txtUrl" type="text" class="form-control" formControlName="Url" />
+          <input mz-input mz-validation required data-length="150" id="txtUrl" type="text" class="form-control" formControlName="Url" />
+          <!-- <display-validation [control]="secureKeyModel.controls.Url"></display-validation> -->
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <label for="txtUrl">Login</label>
-          <input id="txtUrl" type="text" class="form-control" formControlName="Login" />
+          <label for="txtLogin">Login</label>
+          <input mz-input mz-validation required data-length="150" id="txtLogin" type="text" class="form-control" formControlName="Login" />
+          <!-- <display-validation [control]="secureKeyModel.controls.Login"></display-validation> -->
         </div>
         <div class="input-field col s6">
           <label for="txtPassword">Senha</label>
-          <input id="txtPassword" type="text" class="form-control" formControlName="Password" />
+          <input mz-input mz-validation required data-length="150" id="txtPassword" type="text" class="form-control" formControlName="Password" />
+          <!-- <display-validation [control]="secureKeyModel.controls.Password"></display-validation> -->
         </div>
       </div>
     </form>
 
   </mz-modal-content>
   <mz-modal-footer>
-    <button class="waves-effect btn-flat text-blue" [disabled]="!isValidCustom()" (click)="save()">
+    <button class="waves-effect btn-flat green-sys" [disabled]="!isValidCustom()" (click)="save()">
       <i class="material-icons left">save</i>Salvar</button>
     <button class="waves-effect btn-flat" mz-modal-close>
       <i class="material-icons left">clear</i>Fechar</button>
