@@ -15,7 +15,7 @@ import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
-// Providers
+// Prasdoviders
 import { AuthService } from './shared/services/auth.service';
 import { PreloaderService } from './shared/components/preloader/preloader.service';
 import { TokenService } from './shared/services/token.service';
