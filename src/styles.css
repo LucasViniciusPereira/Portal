@@ -135,6 +135,7 @@ input { margin: 0 0 10px 0 !important;}
 .green-sys { color: #26a69a; }
 .nav-wrapper { background-color: #26a69a; }
 .background-user { background: url('http://cdn.lucasvinicius.net/images/background/bg_material_design.png'); background-size: cover }
+.header-custom { background-color: #26a69a; color: white; margin: -25px -35px 25px; padding: inherit;}
 /*** Identifiers ***/
 #bgvid {
   position: fixed;
@@ -142,13 +143,14 @@ input { margin: 0 0 10px 0 !important;}
   min-height: 100%;
   z-index: -100;
   zoom: 0;
-  background: url("http://cdn.lucasvinicius.net/images/background/bg_portal1.jpg") no-repeat;
+  background-color: #b9b9b9;
+  /* background: url("http://cdn.lucasvinicius.net/images/background/bg_portal1.jpg") no-repeat; */
   background-size: cover;
 }
 
 #bgvid_opacity {
   position: fixed;
-  background-color: rgba(0, 0, 0, 0.40);
+  /* background-color: rgba(0, 0, 0, 0.40); */
   width: 100%;
   height: 100vh;
 }
