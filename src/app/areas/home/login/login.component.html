@@ -1,35 +1,45 @@
-<div id="bgvid"></div>
+<div class="container-login">
+  <div class="row" style="height: 100%; overflow: hidden;">
+    <div class="col s12 m5 l4 x3 box-left" style="background-color: #fff; height: 100vh;  overflow: auto;">
+      <!--Logo margin-bottom: 0px-->
+      <div class="custom-logo-img"></div>
+      <div class="login-box">
+        <form [formGroup]="loginModel">
+          <div class="card-content">
+            <div class="center header-custom" style="font-size: 2.0rem;">
+              <span class="card-title" style="font-weight: 400;">Portal</span>
+              <div style="margin: -10px 0 20px;">
+                <small style="font-weight: 300;">Sistema para gestão pessoal</small>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group input-field col s12">
+                <label class="control-label" for="txtEmail">Email</label>
+                <input id="txtEmail" type="email" class="form-control validate" formControlName="Email" />
+                <display-validation [control]="loginModel.controls.Email"></display-validation>
+              </div>
+              <div class="form-group input-field col s12">
+                <label class="control-label" for="txtPassword">Senha </label>
+                <input id="txtPassword" type="password" minlength="6" class="form-control validate" formControlName="Password" />
+                <display-validation [control]="loginModel.controls.Password"></display-validation>
+              </div>
+            </div>
+          </div>
+          <div class="card-action center">
+            <!-- <button type="reset" class="waves-effect btn-flat grey-text">Redefinir</button> -->
+            <button class="waves-effect waves-light btn" [disabled]="!loginModel.valid" (click)="submit()">
+              <i class="material-icons left">play_arrow</i>Entrar</button>
+          </div>
+        </form>
+      </div>
 
-<!-- Card Login -->
-<div id="bgvid_opacity">
-  <div class="valign-wrapper row login-box">
-    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
-      <form [formGroup]="loginModel">
-        <div class="card-content">
-          <div class="center header-custom">
-            <span class="card-title" style="margin-bottom: 0px;">Portal</span>
-            <small>Sistema para gestão pessoal</small>
-          </div>
-          <div class="row">
-            <div class="form-group input-field col s12">
-              <label class="control-label" for="txtEmail">Email</label>
-              <input id="txtEmail" type="email"  class="form-control validate" formControlName="Email" />
-              <display-validation [control]="loginModel.controls.Email"></display-validation>
-            </div>
-            <div class="form-group input-field col s12">
-              <label class="control-label" for="txtPassword">Senha </label>
-              <input id="txtPassword" type="password" minlength="6" class="form-control validate" formControlName="Password" />
-              <display-validation [control]="loginModel.controls.Password"></display-validation>
-            </div>
-          </div>
-        </div>
-        <div class="card-action center">
-          <button type="reset" class="waves-effect btn-flat grey-text">Redefinir</button>
-          <button class="waves-effect waves-light btn" [disabled]="!loginModel.valid" (click)="submit()">
-            <i class="material-icons left">play_arrow</i>Entrar</button>
-        </div>
-      </form>
+      <!--Rodapé-->
+      <div class="hide-on-small-only" style="bottom: 0; position: absolute;">
+        <small>Desenv.Lucas Vinicius ©Copyright 2017 - Version 1.0.0</small>
+      </div>
+    </div>
+    <div class="col m7 l8 x9 hide-on-small-only box-rigth bg-box-rigth" style="background-color: #26a69a">
+      <div class="bg-box-rigth"></div>
     </div>
   </div>
-
 </div>

@@ -4,8 +4,10 @@ main,
 footer {
   padding-left: 300px;
 }
+html, body{height: 100%;}
 body {
   background-color: #f1f1f1;
+  margin: 0;
 }
 hr {
   border-color: rgba(255, 255, 255, 0.34);
@@ -51,12 +53,38 @@ hr {
 }
 
 /*** Class ***/
+.login-box {
+  top: 25%; position: relative; max-width: 450px; margin-left: auto; margin-right: auto; height: 0 !important;
+}
+.box-rigth{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.bg-box-rigth {
+  /* background-image: url(/66f9/img/signup/step1-illi@2x.png); */
+}
+.custom-logo-img {
+  margin: 1rem;
+  height: 32px;
+  background: url(http://lucasvinicius.net/img/logo-lucas-vinicius2.png) no-repeat;
+  background-size: contain;
+}
 .blue { background-color: #0466ff !important; }
 .btn-filter {
   position: absolute;
   right: 15px;
   bottom: -28px;
 }
+/* .box-left { overflow: scroll; }
+.box-rigth { overflow: hidden; } */
+.container-login {  height: 100%;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
 .margin-top-40 {
   margin-top: 40px;
 }
@@ -135,7 +163,7 @@ input { margin: 0 0 10px 0 !important;}
 .green-sys { color: #26a69a; }
 .nav-wrapper { background-color: #26a69a; }
 .background-user { background: url('http://cdn.lucasvinicius.net/images/background/bg_material_design.png'); background-size: cover }
-.header-custom { background-color: #26a69a; color: white; margin: -25px -35px 25px; padding: inherit;}
+
 /*** Identifiers ***/
 #bgvid {
   position: fixed;
@@ -163,3 +191,9 @@ input { margin: 0 0 10px 0 !important;}
     padding-left: 0;
   }
 }
+
+@media (max-width: 37em) {
+  .login-box {
+    top:10%;
+  }
+ }

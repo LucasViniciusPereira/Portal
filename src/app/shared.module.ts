@@ -1,5 +1,5 @@
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng2IziToastModule } from 'ng2-izitoast';
+// import { Ng2IziToastModule } from 'ng2-izitoast';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -26,7 +26,7 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2IziToastModule,
+    // Ng2IziToastModule,
     NgxPaginationModule,
     MaterializeModule.forRoot()
   ],

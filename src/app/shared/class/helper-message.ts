@@ -1,7 +1,7 @@
 import { Enumerations } from './../enumerators/enumerations';
 import { MzToastService } from 'ng2-materialize';
 import { Optional, Injectable } from '@angular/core';
-import izitoast from 'izitoast';
+// import izitoast from 'izitoast';
 
 @Injectable()
 export class HelperMessage {
@@ -43,28 +43,30 @@ export class HelperMessage {
   }
 
   private ShowSnackBar(message, className = 'default', title, imageToast) {
-    izitoast.success({
-      title: '<b>' + title + '</b>',
-      titleSize: '15',
-      titleLineHeight: '19px',
-      backgroundColor: 'white',
-      messageColor: 'black',
-      iconColor: 'black',
-      titleColor: 'black',
-      drag: true,
-      image: imageToast,
-      timeout: 5000,
-      layout: 2,
-      maxWidth: 350,
-      class: className,
-      theme: 'dark',
-      position: 'topRight',
-      message: message,
-      // onClosed: function () {
-      //   const hash = (arguments[0].title + arguments[0].message).hashCode();
-      //   const index = this.showMessageMD.arrayMessage.indexOf(hash);
-      //   this.showMessageMD.arrayMessage.splice(index, 1);
-      // }.bind(this)
-     });
+    const svc = new MzToastService();
+    svc.show(message, 5000, className);
+    // izitoast.success({
+    //   title: '<b>' + title + '</b>',
+    //   titleSize: '15',
+    //   titleLineHeight: '19px',
+    //   backgroundColor: 'white',
+    //   messageColor: 'black',
+    //   iconColor: 'black',
+    //   titleColor: 'black',
+    //   drag: true,
+    //   image: imageToast,
+    //   timeout: 5000,
+    //   layout: 2,
+    //   maxWidth: 350,
+    //   class: className,
+    //   theme: 'dark',
+    //   position: 'topRight',
+    //   message: message,
+    //   // onClosed: function () {
+    //   //   const hash = (arguments[0].title + arguments[0].message).hashCode();
+    //   //   const index = this.showMessageMD.arrayMessage.indexOf(hash);
+    //   //   this.showMessageMD.arrayMessage.splice(index, 1);
+    //   // }.bind(this)
+    //  });
   }
 }
