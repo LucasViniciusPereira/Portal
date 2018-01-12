@@ -10,7 +10,7 @@ export class LoginModel {
   ) { }
 
   public ValidateLogin(): Exception.BusinessValidation {
-    const validation:  Exception.BusinessValidation = new Exception.BusinessValidation();
+    const validation: Exception.BusinessValidation = new Exception.BusinessValidation();
 
     if (this.Email == null || this.Email === undefined) {
       validation.addValidation(new Exception.RuleValidationSimple('O campo e-mail não foi preenchido.'));

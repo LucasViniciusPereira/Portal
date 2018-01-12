@@ -8,24 +8,24 @@ import { AuthGuard } from './guards/auth.guard';
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
 import { LoginComponent } from './areas/home/login/login.component';
-import { IndexComponent } from './components/index/index.component';
 
 // lAYOUTS
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home/index', pathMatch: 'full' },
-  { path: 'index', component: IndexComponent,  canActivate: [AuthGuard]  },
-  { path: 'login', component: LoginComponent},
-
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   // Modules
-  { path: 'home',  component: LayoutPrincipalComponent,
-      loadChildren: 'app/areas/home/home.module#HomeModule', canActivate: [AuthGuard]},
-  { path: 'general',  component: LayoutPrincipalComponent,
-      loadChildren: 'app/areas/general/general.module#GeneralModule', canActivate: [AuthGuard]},
-
+  {
+    path: 'home', component: LayoutPrincipalComponent,
+    loadChildren: 'app/areas/home/home.module#HomeModule', canActivate: [AuthGuard]
+  },
+  {
+    path: 'general', component: LayoutPrincipalComponent,
+    loadChildren: 'app/areas/general/general.module#GeneralModule', canActivate: [AuthGuard]
+  },
   // http-Codes
-  { path: 'forbidden', component: ForbiddenComponent},
+  { path: 'forbidden', component: ForbiddenComponent },
   { path: '**', component: NotfoundComponent }
 ];
 

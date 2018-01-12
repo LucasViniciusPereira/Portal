@@ -8,7 +8,6 @@ import { MaterializeModule } from 'ng2-materialize';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
-import { IndexComponent } from './components/index/index.component';
 import { LoginComponent } from './areas/home/login/login.component';
 import { NotfoundComponent } from './shared/components/http-codes/404-not-found/not-found.component';
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
@@ -24,7 +23,6 @@ import { SharedModule } from './shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
     LoginComponent,
     LayoutPrincipalComponent,
     NotfoundComponent,

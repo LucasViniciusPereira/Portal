@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TokenService {
-  tokenName = 'X-TokenApp';
+  tokenName = 'Authorization';
 
   CreateTokenUser(userModel: any) {
     const token = window.localStorage.getItem(this.tokenName);
@@ -13,7 +13,7 @@ export class TokenService {
   }
 
   getTokenUser(): any {
-    let token = window.localStorage.getItem(this.tokenName);
+    const token = window.localStorage.getItem(this.tokenName);
     if (token != null) {
       return token.replace(/[\\"]/g, '');
     }

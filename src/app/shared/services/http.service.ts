@@ -1,14 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { MzToastService } from 'ng2-materialize/dist';
-import {
-  Headers,
-  Http,
-  RequestMethod,
-  RequestOptions,
-  RequestOptionsArgs,
-  Response
-} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -28,7 +21,7 @@ import { BaseHttpService } from './base.http.service';
 export class HttpService extends BaseHttpService {
 
   constructor(
-    protected http: Http,
+    protected http: HttpClient,
     protected svcPreloader: PreloaderService,
     protected svcToken: TokenService,
   ) {

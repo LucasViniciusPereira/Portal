@@ -14,7 +14,6 @@ export class AuthService extends TokenService {
   }
 
   isLoggedIn(): boolean {
-    // Implementar: Busca autenticação do usuário
     const token = this.getTokenUser();
 
     if (token == null || token === undefined) {
@@ -24,7 +23,7 @@ export class AuthService extends TokenService {
   }
 
   login(params: any): Observable<any> {
-    const url = 'login';
+    const url = 'Auth/login';
 
     return this.svcHttp.post(url, params);
   }

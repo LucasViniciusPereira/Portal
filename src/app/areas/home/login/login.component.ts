@@ -37,9 +37,17 @@ export class LoginComponent implements OnInit {
     password: this.loginModel.controls['Password'].value };
 
     this.svcAuth.login(model)
-    .subscribe(data => {
-      this.svcAuth.CreateTokenUser(data);
-      this.router.navigate(['/']);
-     });
+    .subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      });
+    // .subscribe(data => {
+    //   debugger;
+    //   this.svcAuth.CreateTokenUser(data);
+    //   this.router.navigate(['/']);
+    //  });
   }
 }

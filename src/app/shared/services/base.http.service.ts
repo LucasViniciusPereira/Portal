@@ -1,14 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { MzToastService } from 'ng2-materialize/dist';
-import {
-  Headers,
-  Http,
-  RequestMethod,
-  RequestOptions,
-  RequestOptionsArgs,
-  Response
-} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
@@ -26,7 +19,7 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class BaseHttpService {
   constructor(
-    protected http: Http,
+    protected http: HttpClient ,
     protected svcToken: TokenService,
   ) { }
 
@@ -38,13 +31,20 @@ export class BaseHttpService {
       options = this.setHeaderRequest();
     }
 
-    return this.http
-      .get(url, { search: params, headers: options })
-      .map((response: Response) => {
-        this.callbackSuccess(response);
-        return response.json();
-      })
-      .catch(this.callbackError);
+    return this.http.get(url, { headers: options })
+    .map((response: Response) => {
+      this.callbackSuccess(response);
+      return response.json();
+    })
+    .catch(this.callbackError);
+
+    // return this.http
+    //   .get(url, { search: params, headers: options })
+    //   .map((response: Response) => {
+    //     this.callbackSuccess(response);
+    //     return response.json();
+    //   })
+    //   .catch(this.callbackError);
   }
 
   post(url: string, model: any, headers: boolean = true): Observable<any> {
@@ -56,9 +56,9 @@ export class BaseHttpService {
     }
 
     return this.http
-      .post(url, JSON.stringify(model), { headers: options})
-      .map((res: Response) => res.text() ? res.json() : res)
-      .catch(this.callbackError);
+    .post(url, model, options)
+    // .map((res: Response) => res.text() ? res.json() : res)
+    .catch(this.callbackError);
   }
 
   delete(url: string, id: any, headers: boolean = true): Observable<any> {
@@ -80,7 +80,8 @@ export class BaseHttpService {
     if (error.status === 0) {
       msg = 'Problema no servidor, se encontra em manutenção.';
     } else {
-      msg = error.json().Message || error.json();
+      //msg = error.json().Message || error.json();
+      msg = error.error.Message;
     }
 
     new HelperMessage().showMessage(Enumerations.eTypeMessage.ERROR, [msg]);
@@ -96,14 +97,12 @@ export class BaseHttpService {
     }
   }
 
-  protected setHeaderRequest(): Headers {
-    // Token user application
+  protected setHeaderRequest(): HttpHeaders {
     const tokenUser = this.svcToken.getTokenUser();
-    const headers = new Headers({
-      'Content-Type': 'application/json; charset=UTF-8',
-      'X-TokenApp': tokenUser
-    });
+    const headers = new HttpHeaders();
 
+    headers.set('Content-Type', 'application/json; charset=UTF-8');
+    headers.set('Authorization', tokenUser);
     return headers;
   }
 }

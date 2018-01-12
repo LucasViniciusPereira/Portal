@@ -1,7 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { Ng2IziToastModule } from 'ng2-izitoast';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,7 +23,7 @@ import { DisplayValidationService } from './shared/services/display.validation.s
   imports: [
     CommonModule,
     RouterModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     // Ng2IziToastModule,
