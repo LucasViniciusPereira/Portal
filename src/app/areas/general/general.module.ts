@@ -2,7 +2,7 @@ import { HelperMessage } from './../../shared/class/helper-message';
 import { GeneralRoutes } from './general.routes';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+ 
 import { SharedModule } from '../../shared.module';
 import { SecurekeyService } from './securekey/securekey.service';
 
