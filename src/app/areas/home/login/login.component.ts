@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
     const token = this.svcAuth.getTokenUser();
     if (token != null) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     }
   }
 
@@ -37,17 +37,12 @@ export class LoginComponent implements OnInit {
     password: this.loginModel.controls['Password'].value };
 
     this.svcAuth.login(model)
-    .subscribe(
-      res => {
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      });
-    // .subscribe(data => {
-    //   debugger;
-    //   this.svcAuth.CreateTokenUser(data);
-    //   this.router.navigate(['/']);
-    //  });
+    .subscribe(data => {
+      this.svcAuth.CreateTokenUser(data.access_token);
+      this.svcAuth.SaveMenuTokenUser(data.menu_application);
+      this.svcAuth.SaveInformationUser(data.user);
+
+      this.router.navigate(['/home']);
+     });
   }
 }

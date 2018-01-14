@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  BaseUrl: 'http://localhost:51214/'
+  //BaseUrl: 'http://localhost:51214/'
+  BaseUrl: 'http://api.portal.lucasvinicius.net/v2/'
 };

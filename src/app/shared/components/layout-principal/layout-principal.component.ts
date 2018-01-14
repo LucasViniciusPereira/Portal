@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./layout-principal.component.css']
 })
 export class LayoutPrincipalComponent implements OnInit {
+  public canShowMenuPrincipal: boolean;
 
   constructor(
     private svcAuth: AuthService,
@@ -15,6 +16,7 @@ export class LayoutPrincipalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.canShowMenuPrincipal = false;
   }
 
   logout() {

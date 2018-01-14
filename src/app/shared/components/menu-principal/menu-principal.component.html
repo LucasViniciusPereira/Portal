@@ -1,0 +1,37 @@
+<mz-sidenav [id]="'sidenav'" [collapseButtonId]="'btn-sidenav'">
+  <!-- Header menu -->
+  <mz-sidenav-header>
+    <div class="user-view" >
+      <div class="background background-user">
+        <!-- <img src="http://cdn.lucasvinicius.net/images/background/bg_material_design.png"> -->
+      </div>
+      <a href="#!user">
+        <img class="circle" src="http://cdn.lucasvinicius.net/images/icon/user.png">
+      </a>
+      <a href="#!name">
+        <span class="white-text name">{{ user.Name }}</span>
+      </a>
+      <a href="#!email">
+        <span class="white-text email">{{ user.Email }}</span>
+      </a>
+    </div>
+  </mz-sidenav-header>
+
+  <div *ngFor="let menu of lstMenu">
+    <!-- Description menu -->
+    <mz-sidenav-subheader>{{ menu.Name }}</mz-sidenav-subheader>
+
+    <!-- Links menu -->
+    <div *ngFor="let submenu of menu.Chilldren">
+      <!-- Falta implementar o children do subMenu-->
+      <mz-sidenav-link routerLinkActive="active">
+        <a href="#" [routerLink]="'/'+ submenu.Url">
+          <i mz-icon [icon]="submenu.Icon"></i>
+          {{ submenu.Name }}
+        </a>
+      </mz-sidenav-link>
+      <mz-sidenav-divider></mz-sidenav-divider>
+    </div>
+  </div>
+
+</mz-sidenav>

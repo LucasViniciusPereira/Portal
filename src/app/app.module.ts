@@ -13,6 +13,7 @@ import { NotfoundComponent } from './shared/components/http-codes/404-not-found/
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
 import { LayoutPrincipalComponent } from './shared/components/layout-principal/layout-principal.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
+import { MenuPrincipalComponent } from './shared/components/menu-principal/menu-principal.component';
 
 // Prasdoviders
 import { AuthService } from './shared/services/auth.service';
@@ -25,6 +26,7 @@ import { SharedModule } from './shared.module';
     AppComponent,
     LoginComponent,
     LayoutPrincipalComponent,
+    MenuPrincipalComponent,
     NotfoundComponent,
     ForbiddenComponent,
     PreloaderComponent,
