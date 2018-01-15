@@ -163,6 +163,12 @@ input { margin: 0 0 10px 0 !important;}
 .green-sys { color: #26a69a; }
 .nav-wrapper { background-color: #26a69a; }
 .background-user { background: url('http://cdn.lucasvinicius.net/images/background/bg_material_design.png'); background-size: cover }
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-56 { font-size: 56px; }
 
 /*** Identifiers ***/
 #bgvid {

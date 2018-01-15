@@ -1,4 +1,29 @@
+<div class="row center">
+  <div class="col s12">
+    <h4>Portal</h4>
+  </div>
+  <div class="col s12">
+    <span class="module-description">Seja bem vindo ao sistema de gestão pessoal, aproveite.</span>
+  </div>
+</div>
+
 <div class="row">
+  <div class="col 12">
+    <div *ngFor="let module of modules">
+      <a href="#" [routerLink]="'/'+ module.Url">
+        <div class="card-module center">
+          <span class="card-module-icon">
+            <i class="material-icons md-56">{{ module.Icon }}</i>
+          </span>
+          <span class="card-module-name">{{ module.Name }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="row">
     <h3 class="col s12 light center header">Portal - Sistema para gestão</h3>
 </div>
 
@@ -25,4 +50,4 @@
   <li>19 - Login criar usuário</li>
   <li>...</li>
   <li>99 - Teste do sistema - Permissão, dados do usuário </li>
-</ul>
+</ul> -->
