@@ -15,10 +15,10 @@ export class TokenService {
   }
 
   getTokenUser(): any {
-    const token = window.localStorage.getItem(this.tokenName);
-    if (token != null) {
-      return token.replace(/[\\"]/g, '');
-    }
+    const token = JSON.parse(window.localStorage.getItem(this.tokenName));
+    // if (token != null) {
+    //   return token.replace(/[\\"]/g, '');
+    // }
     return token;
   }
 

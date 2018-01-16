@@ -23,7 +23,7 @@ export class SecurekeyService {
     const url = 'key';
 
     // Paginator
-    const params: URLSearchParams = new URLSearchParams();
+    const params: HttpParams = new HttpParams();
     params.set('PageIndex', data.PageIndex);
     params.set('PageSize', data.PageSize);
 

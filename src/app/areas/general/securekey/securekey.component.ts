@@ -64,7 +64,6 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
 
     this.svcSecureKey
       .getSecureKeys(params, hasPreloader)
-      // .delay(1000)
       .do(res => this.loading = false)
       .subscribe((res: any) => {
         this.totalItems = res.TotalItems;

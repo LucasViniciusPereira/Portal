@@ -31,7 +31,7 @@ export class BaseHttpService {
       options = this.setHeaderRequest();
     }
 
-    return this.http.get(url, { headers: options })
+    return this.http.get(url, { headers: options, params: params })
     .map((response: Response) => {
       this.callbackSuccess(response);
       return response.json();
@@ -80,7 +80,6 @@ export class BaseHttpService {
     if (error.status === 0) {
       msg = 'Problema no servidor, se encontra em manutenção.';
     } else {
-      //msg = error.json().Message || error.json();
       msg = error.error.Message;
     }
 
@@ -99,6 +98,7 @@ export class BaseHttpService {
 
   protected setHeaderRequest(): HttpHeaders {
     const tokenUser = this.svcToken.getTokenUser();
+    debugger;
     const headers = new HttpHeaders();
 
     headers.set('Content-Type', 'application/json; charset=UTF-8');
