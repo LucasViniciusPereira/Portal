@@ -6,7 +6,7 @@ footer {
 }
 html, body{height: 100%;}
 body {
-  background-color: #f1f1f1;
+  background-color: #eaeaea;
   margin: 0;
 }
 hr {
@@ -127,6 +127,10 @@ i.left {
 .text-red {
   color: #e53935;
 }
+.text-green{
+  color: #26a69a;
+}
+
 .modal-popup .modal {
   max-height: 60%;
   width: 30%;
@@ -165,7 +169,7 @@ input { margin: 0 0 10px 0 !important;}
 .ngx-pagination .current {    background: #26a69a !important;}
 .modal-md .modal { width: 70%; min-height: 80%;  }
 .green-sys { color: #26a69a; }
-.nav-wrapper { background-color: #26a69a; }
+.nav-wrapper { background-color: #f9f9f9; }
 .background-user { background: url('http://cdn.lucasvinicius.net/images/background/bg_material_design.png'); background-size: cover }
 /* Rules for sizing the icon. */
 .material-icons.md-18 { font-size: 18px; }

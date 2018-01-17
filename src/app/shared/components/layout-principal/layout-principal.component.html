@@ -1,13 +1,13 @@
 <app-menu-principal></app-menu-principal>
 
 <mz-navbar>
-  <a [id]="'btn-sidenav'" href="#" data-activates="slide-out" class="button-collapse" style="display: block;" *ngIf="canShowMenuPrincipal">
+  <a [id]="'btn-sidenav'" href="#" data-activates="slide-out" class="button-collapse text-green" style="display: block;" [ngClass]="canShowMenuPrincipal ? '': 'visible-hidden'">
     <i class="material-icons">menu</i>
   </a>
-  <a href="#"  [routerLink]="'/home/index'" class="brand-logo">Portal</a>
+  <a href="#" [routerLink]="'/home/index'" class="text-green center">Portal</a>
   <mz-navbar-item-container [align]="'right'">
       <mz-navbar-item>
-        <a href="#" (click)="logout()">
+        <a href="#" (click)="logout()" [ngClass]="'text-green'">
           <i mz-icon [align]="'right'" [icon]="'forward'"></i>
           Sair</a>
       </mz-navbar-item>
