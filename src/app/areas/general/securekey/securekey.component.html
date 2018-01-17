@@ -34,11 +34,10 @@
                 <input id="txtDescricao" type="text" formControlName="Description" />
                 <label for="txtDescricao">Descrição</label>
               </div>
-              <div class="input-field col s6">
-                <i class="material-icons prefix">date_range</i>
-                <input id="txtDataAtualizacao" type="text" formControlName="DateRefresh" />
-                <label for="txtDataAtualizacao">Data de atualização</label>
-              </div>
+              <mz-datepicker-container class="col s6">
+                <i mz-icon-mdi mz-input-prefix [icon]="'calendar'"></i>
+                <input mz-datepicker formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
+              </mz-datepicker-container>
             </div>
           </div>
         </form>

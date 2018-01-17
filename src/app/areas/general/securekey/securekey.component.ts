@@ -55,7 +55,7 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
 
   private loadData(hasPreloader: boolean = true) {
     if (hasPreloader === false) {
-       this.loading = true;
+      this.loading = true;
     }
 
     const params = this.filterModel.value;
@@ -68,6 +68,11 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
       .subscribe((res: any) => {
         this.totalItems = res.TotalItems;
         this.lstSecureKeys = res.Data;
+
+        if (this.totalItems <= 0) {
+          return this.helperMessage.showMessage(Enumerations.eTypeMessage.INFO,
+            ['Nenhum registro foi encontrado.']);
+        }
       });
   }
 
@@ -91,7 +96,7 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
   }
 
   private delete(item: SecureKeyListModel) {
-    this.modalService.open(SecurekeyDeleteComponent, { model : item});
+    this.modalService.open(SecurekeyDeleteComponent, { model: item });
   }
 
   private create() {

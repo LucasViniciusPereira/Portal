@@ -45,7 +45,9 @@ export class SecurekeyCreateEditComponent extends BaseModal implements OnInit, O
     isValidCustom() {
       return this.secureKeyModel.controls.Description.valid &&
              this.secureKeyModel.controls.Url.valid &&
-             this.secureKeyModel.controls.Password.valid;
+             this.secureKeyModel.controls.Password.valid &&
+             this.secureKeyModel.controls.TypeKey.valid &&
+             this.secureKeyModel.controls.Login.valid;
     }
 
     @FilterException

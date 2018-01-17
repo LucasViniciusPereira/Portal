@@ -63,7 +63,7 @@ export class SecurekeyService {
   }
 
   getTypeKeys(): Observable<Array<KeyValue>> {
-    const url = 'key/gettypekeys';
+    const url = 'key/get-type-keys';
 
     return this.svcHttp.get(url);
   }

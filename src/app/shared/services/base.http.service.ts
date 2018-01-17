@@ -28,23 +28,11 @@ export class BaseHttpService {
 
     let options = null;
     if (headers === true) {
-      options = this.setHeaderRequest();
+       options = this.setHeaderRequest();
     }
 
     return this.http.get(url, { headers: options, params: params })
-    .map((response: Response) => {
-      this.callbackSuccess(response);
-      return response.json();
-    })
     .catch(this.callbackError);
-
-    // return this.http
-    //   .get(url, { search: params, headers: options })
-    //   .map((response: Response) => {
-    //     this.callbackSuccess(response);
-    //     return response.json();
-    //   })
-    //   .catch(this.callbackError);
   }
 
   post(url: string, model: any, headers: boolean = true): Observable<any> {
@@ -57,7 +45,6 @@ export class BaseHttpService {
 
     return this.http
     .post(url, model, options)
-    // .map((res: Response) => res.text() ? res.json() : res)
     .catch(this.callbackError);
   }
 
@@ -96,13 +83,13 @@ export class BaseHttpService {
     }
   }
 
-  protected setHeaderRequest(): HttpHeaders {
+  protected setHeaderRequest(): any {
     const tokenUser = this.svcToken.getTokenUser();
-    debugger;
-    const headers = new HttpHeaders();
 
-    headers.set('Content-Type', 'application/json; charset=UTF-8');
-    headers.set('Authorization', tokenUser);
+    let headers  = new HttpHeaders()
+          .set('Content-Type', 'application/json')
+          .set('Authorization', tokenUser);
+
     return headers;
   }
 }

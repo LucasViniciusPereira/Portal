@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="2input-field col s12">
+        <div class="input-field2 col s12 m6">
           <mz-select-container>
             <select mz-select required [placeholder]="'Selecione o login'" formControlName="TypeKey">
               <option *ngFor="let item of listTypeKeys" [ngValue]="item.key">{{ item.Value }}</option>
@@ -24,21 +24,19 @@
             <display-validation [control]="secureKeyModel.controls.TypeKey"></display-validation>
           </mz-select-container>
         </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 m6">
           <label for="txtUrl">Url</label>
           <input mz-input mz-validation required data-length="150" id="txtUrl" type="text" class="form-control" formControlName="Url" />
           <display-validation [control]="secureKeyModel.controls.Url"></display-validation>
         </div>
       </div>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <label for="txtLogin">Login</label>
           <input mz-input mz-validation required data-length="150" id="txtLogin" type="text" class="form-control" formControlName="Login" />
           <display-validation [control]="secureKeyModel.controls.Login"></display-validation>
         </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12 m6">
           <label for="txtPassword">Senha</label>
           <input mz-input mz-validation required data-length="150" id="txtPassword" type="text" class="form-control" formControlName="Password" />
           <display-validation [control]="secureKeyModel.controls.Password"></display-validation>

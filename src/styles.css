@@ -12,6 +12,10 @@ body {
 hr {
   border-color: rgba(255, 255, 255, 0.34);
 }
+input.form-control, input.select-dropdown {
+  margin: 0 0 0px 0 !important;
+}
+mz-modal-content .row { margin-bottom: 0px !important;}
 
 /*** Preloader ***/
 .pre-loader {
