@@ -23,11 +23,6 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    const token = this.svcAuth.getTokenUser();
-    if (token != null) {
-      this.router.navigate(['/home']);
-    }
   }
 
   @FilterException

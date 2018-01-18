@@ -9,7 +9,7 @@ import { MaterializeModule } from 'ng2-materialize';
 
 import { TokenService } from './shared/services/token.service';
 import { HttpService } from './shared/services/http.service';
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard, AuthGuard2 } from './guards/auth.guard';
 import { BaseHttpService } from './shared/services/base.http.service';
 import { HelperMessage } from './shared/class/helper-message';
 
@@ -41,6 +41,7 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     HttpService,
     HelperMessage,
     AuthGuard,
+    AuthGuard2,
     TokenService,
     DisplayValidationService
   ]

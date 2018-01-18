@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard, AuthGuard2 } from './guards/auth.guard';
 
 // Components
 import { ForbiddenComponent } from './shared/components/http-codes/403-forbidden/forbidden.component';
@@ -14,7 +14,7 @@ import { LayoutPrincipalComponent } from './shared/components/layout-principal/l
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard2] },
   // Modules
   {
     path: 'home', component: LayoutPrincipalComponent,
@@ -24,7 +24,6 @@ const appRoutes: Routes = [
     path: 'general', component: LayoutPrincipalComponent,
     loadChildren: 'app/areas/general/general.module#GeneralModule', canActivate: [AuthGuard]
   },
-  // http-Codes
   { path: 'forbidden', component: ForbiddenComponent },
   { path: '**', component: NotfoundComponent }
 ];
