@@ -48,11 +48,11 @@ export class HttpService extends BaseHttpService {
       });
   }
 
-  delete(url: string, id: any): Observable<any> {
+  delete(url: string, params: any): Observable<any> {
 
     this.onStart();
 
-   return super.delete(url, id)
+   return super.delete(url, params)
     .finally(() => {
       this.onStop();
     });

@@ -23,15 +23,15 @@ export class SecurekeyService {
     const url = 'key';
 
     // Paginator
-    const params: HttpParams = new HttpParams();
-    params.set('PageIndex', data.PageIndex);
-    params.set('PageSize', data.PageSize);
+    let params: HttpParams = new HttpParams();
+    params = params.append('pageIndex', data.PageIndex);
+    params = params.append('pageSize', data.PageSize);
 
     if (data.Description) {
-      params.set('Description', data.Description);
+      params = params.append('Description', 'data.Description');
     }
     if (data.DateRefresh) {
-      params.set('DateRefresh', data.DateRefresh);
+      params = params.append('DateRefresh', data.DateRefresh);
     }
 
     if (hasPreloader === false) {
@@ -44,10 +44,10 @@ export class SecurekeyService {
   getSecureKey(id: number): Observable<SecureKeyModel> {
     const url = 'key';
 
-    const params: URLSearchParams = new URLSearchParams();
-    params.set('id', id.toString());
+    let params: HttpParams = new HttpParams();
+    params = params.append('id', id.toString());
 
-    return this.svcHttp.get(url, params);
+    return this.svcHttp.get(url);
   }
 
   postSecureKey(model: SecureKeyModel): Observable<any> {
@@ -59,7 +59,10 @@ export class SecurekeyService {
   deleteKey(id: number): Observable<any> {
     const url = 'key';
 
-    return this.svcHttp.delete(url, id);
+    let params: HttpParams = new HttpParams();
+    params = params.append('id', id.toString());
+
+    return this.svcHttp.delete(url, params);
   }
 
   getTypeKeys(): Observable<Array<KeyValue>> {

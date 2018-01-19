@@ -19,15 +19,15 @@ import { AuthService } from './auth.service';
 @Injectable()
 export class BaseHttpService {
   constructor(
-    protected http: HttpClient ,
+    protected http: HttpClient,
     protected svcToken: TokenService,
   ) { }
 
-  get(url: string, params?: any, headers: boolean = true): Observable<any> {
+  get(url: string, params?: any, header: boolean = true): Observable<any> {
     url = `${environment.BaseUrl + url}`;
 
-    let options = null;
-    if (headers === true) {
+    let options = new HttpHeaders();
+    if (header === true) {
        options = this.setHeaderRequest();
     }
 
@@ -35,7 +35,20 @@ export class BaseHttpService {
     .catch(this.callbackError);
   }
 
-  post(url: string, model: any, headers: boolean = true): Observable<any> {
+  post(url: string, model: any, params: boolean = true): Observable<any> {
+    url = `${environment.BaseUrl + url}`;
+
+    let options = new HttpHeaders();
+    if (params === true) {
+      options = this.setHeaderRequest();
+    }
+
+    return this.http
+    .post(url, model, { headers: options })
+    .catch(this.callbackError);
+  }
+
+  delete(url: string, params: any, headers: boolean = true): Observable<any> {
     url = `${environment.BaseUrl + url}`;
 
     let options = null;
@@ -44,20 +57,7 @@ export class BaseHttpService {
     }
 
     return this.http
-    .post(url, model, options)
-    .catch(this.callbackError);
-  }
-
-  delete(url: string, id: any, headers: boolean = true): Observable<any> {
-    url = `${environment.BaseUrl + url}`;
-
-    let options = null;
-    if (headers === true) {
-      options = this.setHeaderRequest();
-    }
-
-   return this.http.delete( url + '/' + id, { headers: options })
-    .map((res: Response) => res.text() ? res.json() : res)
+    .delete(url, { headers: options, params: params })
     .catch(this.callbackError);
   }
 
@@ -74,21 +74,12 @@ export class BaseHttpService {
     return Observable.throw(msg);
   }
 
-  protected callbackSuccess(data: Response | any) {
-    const msg = data.json().Message || data.json();
-
-    // se não encontrar nenhum dado
-    if (data.status === 200 && msg.length <= 0) {
-      new HelperMessage().showMessage(Enumerations.eTypeMessage.INFO, ['Nenhum item foi encontrado.']);
-    }
-  }
-
   protected setHeaderRequest(): any {
     const tokenUser = this.svcToken.getTokenUser();
 
     let headers  = new HttpHeaders()
           .set('Content-Type', 'application/json')
-          .set('Authorization', tokenUser);
+          .set('Authorization', tokenUser || '');
 
     return headers;
   }
