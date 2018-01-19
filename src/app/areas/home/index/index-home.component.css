@@ -1,4 +1,4 @@
-.card-module { background-color: #37474F; width: 150px; height: 150px;  border:0;
+.card-module { background-color: #FFFFFF; width: 150px; height: 150px;  border:0;
   -webkit-transition: all 100ms ease-in;
   -webkit-transform: scale(1);
   -ms-transition: all 100ms ease-in;
@@ -7,6 +7,7 @@
   -moz-transform: scale(1);
   transition: all 100ms ease-in;
   transform: scale(1);
+  color: #26a69a;
 }
 .card-module:hover {
   z-index: 2;
@@ -20,7 +21,7 @@
   transition: all 100ms ease-in;
   transform: scale(1.1);
 }
-.card-module-icon { color: white; display: block; padding-top: 30px; }
-.card-module-name { color: white; display: block; line-height: 3rem;}
+.card-module-icon { display: block; padding-top: 30px; }
+.card-module-name {  display: block; line-height: 3rem;}
 
 .module-description { font-size: 13px }
