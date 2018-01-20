@@ -68,6 +68,20 @@ mz-modal-content .row { margin-bottom: 0px !important;}
 .bg-box-rigth {
   /* background-image: url(/66f9/img/signup/step1-illi@2x.png); */
 }
+.card .card-image div.img{
+  height: 140px;
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+.card .card-image div.img:nth-child(1){
+  background-color: #4e4e4e;
+}
 .custom-logo-img {
   margin: 1rem;
   height: 32px;

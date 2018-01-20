@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { debug } from 'util';
 import { SecurekeyDeleteComponent } from './securekey-delete/securekey-delete.component';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
@@ -65,14 +66,19 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
     this.svcSecureKey
       .getSecureKeys(params, hasPreloader)
       .do(res => this.loading = false)
-      .subscribe((res: any) => {
-        this.totalItems = res.TotalItems;
-        this.lstSecureKeys = res.Data;
+      .subscribe(
+      data => {
+        this.totalItems = data.TotalItems;
+        this.lstSecureKeys = data.Data;
 
-        if (this.totalItems <= 0) {
+        if (!data || this.totalItems <= 0) {
           return this.helperMessage.showMessage(Enumerations.eTypeMessage.INFO,
             ['Nenhum registro foi encontrado.']);
         }
+      },
+      (err: HttpErrorResponse) => {
+        return this.helperMessage.showMessage(Enumerations.eTypeMessage.ERROR,
+          [err.message]);
       });
   }
 

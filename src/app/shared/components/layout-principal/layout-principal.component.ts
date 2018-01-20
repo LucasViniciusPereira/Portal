@@ -16,7 +16,7 @@ export class LayoutPrincipalComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.canShowMenuPrincipal = this.router.url !== '/home/index';
+    this.canShowMenuPrincipal = this.router.url.indexOf('/home/index') !== 0;
   }
 
   logout() {

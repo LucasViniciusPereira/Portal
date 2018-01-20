@@ -28,11 +28,15 @@
       <a href="#" [routerLink]="'/'+ module.Url">
         <div class="card card-module black-text">
           <div class="card-image">
-              <img src="http://cdn.lucasvinicius.net/images/background/bg_material_design.png">
-              <span class="card-title"><i class="material-icons">{{ module.Icon }}</i> {{ module.Name }}</span>
+            <div class="img">
+
+            </div>
+            <!-- <img src="http://cdn.lucasvinicius.net/images/background/bg_material_design.png"> -->
+            <span class="card-title">
+              <i class="material-icons">{{ module.Icon }}</i> {{ module.Name }}</span>
           </div>
           <div class="card-content">
-              {{ module.Description }}
+            {{ module.Description }}
           </div>
         </div>
       </a>
