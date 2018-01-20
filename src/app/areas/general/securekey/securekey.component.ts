@@ -1,4 +1,4 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { debug } from 'util';
 import { SecurekeyDeleteComponent } from './securekey-delete/securekey-delete.component';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
@@ -16,6 +16,7 @@ import { Exception } from '../../../shared/class/exception-validation';
 import { FormBuilder } from '@angular/forms';
 import { KeyValue } from '../../../shared/class/key-value';
 import { Observable } from 'rxjs/Observable';
+import { Response } from '@angular/http/src/static_response';
 
 
 @Component({
@@ -67,7 +68,7 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
       .getSecureKeys(params, hasPreloader)
       .do(res => this.loading = false)
       .subscribe(
-      data => {
+      (data: any) => {
         this.totalItems = data.TotalItems;
         this.lstSecureKeys = data.Data;
 
@@ -75,16 +76,13 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
           return this.helperMessage.showMessage(Enumerations.eTypeMessage.INFO,
             ['Nenhum registro foi encontrado.']);
         }
-      },
-      (err: HttpErrorResponse) => {
-        return this.helperMessage.showMessage(Enumerations.eTypeMessage.ERROR,
-          [err.message]);
       });
   }
 
   private view(item: SecureKeyListModel) {
 
     this.svcSecureKey.getSecureKey(item.KeyID).subscribe((data: SecureKeyModel) => {
+      console.log(data);
       this.modalService.open(SecurekeyDetailsComponent, { model: data });
     });
   }

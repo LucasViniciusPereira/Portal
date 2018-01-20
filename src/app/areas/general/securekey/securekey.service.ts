@@ -28,7 +28,7 @@ export class SecurekeyService {
     params = params.append('pageSize', data.PageSize);
 
     if (data.Description) {
-      params = params.append('Description', 'data.Description');
+      params = params.append('Description', data.Description);
     }
     if (data.DateRefresh) {
       params = params.append('DateRefresh', data.DateRefresh);
@@ -42,10 +42,10 @@ export class SecurekeyService {
   }
 
   getSecureKey(id: number): Observable<SecureKeyModel> {
-    const url = 'key';
+    const url = 'key/' + id;
 
-    let params: HttpParams = new HttpParams();
-    params = params.append('id', id.toString());
+    // let params: HttpParams = new HttpParams();
+    // params = params.append('id', id.toString());
 
     return this.svcHttp.get(url);
   }
@@ -57,12 +57,9 @@ export class SecurekeyService {
   }
 
   deleteKey(id: number): Observable<any> {
-    const url = 'key';
+    const url = 'key/' + id;
 
-    let params: HttpParams = new HttpParams();
-    params = params.append('id', id.toString());
-
-    return this.svcHttp.delete(url, params);
+    return this.svcHttp.post(url, null);
   }
 
   getTypeKeys(): Observable<Array<KeyValue>> {

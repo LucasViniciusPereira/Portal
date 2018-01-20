@@ -23,7 +23,7 @@
       </div>
 
       <div class="card-content">
-        <span class="card-title">Filtro</span>
+        <span class="card-title"><i class="fa fa-filter" aria-hidden="true"></i> Filtro</span>
         <hr class="grey lighten-4" />
 
         <!-- Campos -->
@@ -34,62 +34,64 @@
                 <input id="txtDescricao" type="text" formControlName="Description" />
                 <label for="txtDescricao">Descrição</label>
               </div>
-              <mz-datepicker-container class="col s6">
-                <i mz-icon-mdi mz-input-prefix [icon]="'calendar'"></i>
-                <input mz-datepicker formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
-              </mz-datepicker-container>
+              <div class="col s6">
+                <mz-datepicker-container >
+                  <i mz-icon-mdi mz-input-prefix [icon]="'calendar'"></i>
+                  <input mz-datepicker formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
+                </mz-datepicker-container>
+              </div>
             </div>
           </div>
         </form>
 
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Grid -->
-    <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0">
-      <div class="card-content">
-        <div [ngClass]="{ 'spinner': loading }"></div>
-        <table class="bordered highlight responsive-table" [ngClass]="{ 'loading': loading }">
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Url</th>
-              <th>Última atualização</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of lstSecureKeys | paginate: {  id: 'pagination', itemsPerPage: pageSize, currentPage: pageIndex, totalItems: totalItems} let i = index">
-              <td> {{ item.Description }} </td>
-              <td> {{ item.Url }} </td>
-              <td> {{ item.DateRefresh }}</td>
-              <td>
-                <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
-                  [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
-                  <mz-dropdown-item>
-                    <a href="javascript:void(0)" (click)="view(item)">
-                      <i class="material-icons">visibility</i>Visualizar</a>
-                  </mz-dropdown-item>
-                  <mz-dropdown-item>
-                    <a href="javascript:void(0)" (click)="edit(item)">
-                      <i class="material-icons">create</i>Editar</a>
-                  </mz-dropdown-item>
-                  <mz-dropdown-item>
-                    <a href="javascript:void(0)" (click)="delete(item)">
-                      <i class="material-icons">delete</i>Excluir</a>
-                  </mz-dropdown-item>
-                </mz-dropdown>
-                <div class="right hide-on-med-and-down">
-                  <a class="btn-grid-group waves-effect waves-light green-sys" [id]="'btn-dropdown' + i">
-                    <i class="material-icons">more_vert</i>
-                  </a>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <pagination-controls id="pagination" (pageChange)="pageChange(pageIndex = $event)" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
-      </div>
-    </div>
+<!-- Grid -->
+<div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0">
+  <div class="card-content">
+    <div [ngClass]="{ 'spinner': loading }"></div>
+    <table class="bordered highlight responsive-table" [ngClass]="{ 'loading': loading }">
+      <thead>
+        <tr>
+          <th>Descrição</th>
+          <th>Url</th>
+          <th>Última atualização</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lstSecureKeys | paginate: {  id: 'pagination', itemsPerPage: pageSize, currentPage: pageIndex, totalItems: totalItems} let i = index">
+          <td> {{ item.Description }} </td>
+          <td> {{ item.Url }} </td>
+          <td> {{ item.DateRefresh }}</td>
+          <td>
+            <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
+              [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
+              <mz-dropdown-item>
+                <a href="javascript:void(0)" (click)="view(item)">
+                  <i class="material-icons">visibility</i>Visualizar</a>
+              </mz-dropdown-item>
+              <mz-dropdown-item>
+                <a href="javascript:void(0)" (click)="edit(item)">
+                  <i class="material-icons">create</i>Editar</a>
+              </mz-dropdown-item>
+              <mz-dropdown-item>
+                <a href="javascript:void(0)" (click)="delete(item)">
+                  <i class="material-icons">delete</i>Excluir</a>
+              </mz-dropdown-item>
+            </mz-dropdown>
+            <div class="right hide-on-med-and-down">
+              <a class="btn-grid-group waves-effect waves-light green-sys" [id]="'btn-dropdown' + i">
+                <i class="material-icons">more_vert</i>
+              </a>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls id="pagination" (pageChange)="pageChange(pageIndex = $event)" previousLabel="Anterior" nextLabel="Próximo"></pagination-controls>
   </div>
 </div>

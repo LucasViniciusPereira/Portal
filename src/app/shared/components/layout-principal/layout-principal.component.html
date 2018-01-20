@@ -5,28 +5,25 @@
     <i class="material-icons">menu</i>
   </a>
   <a href="#" [routerLink]="'/home/index'" class="text-green">Portal</a>
-  <mz-navbar-item-container [align]="'right'">
-      <mz-navbar-item>
-        <a href="#" (click)="logout()" [ngClass]="'text-green'">
-          <i mz-icon [align]="'right'" [icon]="'forward'"></i>
-          Sair</a>
-      </mz-navbar-item>
-  </mz-navbar-item-container>
-
-
-  <!-- <mz-navbar-item>
-      <a id="btn-dropdown-entidade-sindical-menu" class="normal" href="#">
-          <i mz-icon [align]="'center'" [icon]="'domain'" [size]="'small'"></i>
+  <ul id="nav-mobile" class="right hide-on-med-and-down">
+    <li>
+      <a id="btn-dropdown-menu-user" href="javascript:void(0)" [ngClass]="'text-green normal'">
+        {{ user.Name }}<i [class]="'right'" mz-icon [align]="'center'" [icon]="'account_circle'" [size]="'small'"></i>
       </a>
-      <mz-dropdown [id]="'entidade-sindical-menu'" [align]="'right'" [belowOrigin]="true" [constrainWidth]="false" [dropdownButtonId]="'btn-dropdown-entidade-sindical-menu'"
-        [gutter]="true" [hover]="true" [inDuration]="300" [outDuration]="300" [stopPropagation]="true">
+    </li>
+  </ul>
+  <mz-navbar-item-container [align]="'right'">
+    <mz-navbar-item>
+
+      <!-- Dropdown user -->
+      <mz-dropdown [id]="'menu-user'" [align]="'right'" [belowOrigin]="true" [constrainWidth]="false" [dropdownButtonId]="'btn-dropdown-menu-user'"
+        [gutter]="true" [inDuration]="300" [outDuration]="300" [stopPropagation]="true">
         <mz-dropdown-item>
-          <a routerLink="['/entidadeSindical']">
-            <i class="fas fa-building"></i>{{'Fecomércio'}}
-          </a>
+          <a href="#" (click)="logout()">Sair</a>
         </mz-dropdown-item>
       </mz-dropdown>
-    </mz-navbar-item> -->
+    </mz-navbar-item>
+  </mz-navbar-item-container>
 </mz-navbar>
 
 <div class="container margin-top-40">

@@ -20,7 +20,8 @@ export class MenuPrincipalComponent implements OnInit {
 
   ngOnInit() {
     const url = this.router.url.substring(1);
-    this.lstMenu = JSON.parse(this.svc.GetMenuTokenUser()).filter(function(item) { return item.Url === url; });
+    //debugger;
+    this.lstMenu = JSON.parse(this.svc.GetMenuTokenUser()).filter(function (item) { return item.Url === url; });
     this.user = JSON.parse(this.svc.GetInformationUser());
   }
 }
