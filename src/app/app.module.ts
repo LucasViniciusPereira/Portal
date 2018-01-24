@@ -20,6 +20,7 @@ import { AuthService } from './shared/services/auth.service';
 import { PreloaderService } from './shared/components/preloader/preloader.service';
 import { TokenService } from './shared/services/token.service';
 import { SharedModule } from './shared.module';
+import { routerAnimation } from './shared/animations/router.animation';
 
 @NgModule({
   declarations: [
