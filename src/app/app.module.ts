@@ -1,3 +1,4 @@
+import { bounce } from 'ng-animate';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';

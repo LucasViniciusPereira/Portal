@@ -25,7 +25,12 @@
     </mz-navbar-item>
   </mz-navbar-item-container>
 </mz-navbar>
+<!--
+<div class="container margin-top-40" [@routerTransition]="page.activatedRouteData">
+  <router-outlet #page="outlet"></router-outlet>
+</div> -->
 
-<div class="container margin-top-40">
-  <router-outlet></router-outlet>
-</div>
+
+<div class="container margin-top-40" [@routerTransition]>
+    <router-outlet></router-outlet>
+  </div>

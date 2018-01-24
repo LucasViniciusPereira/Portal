@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerAnimation } from './shared/animations/router.animation';
+import {trigger, animate, style, group, animateChild, query, stagger, transition, state} from '@angular/animations';
 
 declare var $: any;
 
@@ -12,9 +13,5 @@ declare var $: any;
 export class AppComponent implements OnInit {
 
   ngOnInit(): void {
-  }
-
-  getState(outlet) {
-    return outlet.activatedRouteData.state;
   }
 }
