@@ -162,7 +162,7 @@ i.left {
 
 .modal-popup .modal {
   max-height: 60%;
-  width: 30%;
+  width: 30rem;
   top: 25% !important;
 }
 .title-modal-popup {
@@ -189,7 +189,9 @@ i.left {
   z-index: 1;
 }
 input[mz-datepicker] { float: right; }
-
+nav ul a:hover {
+  background-color: rgb(236, 236, 236);
+}
 .hidden { display: none; }
 .visible-hidden{ visibility: hidden; }
 .loading { opacity: 0.4 !important; pointer-events: none; }
@@ -242,4 +244,14 @@ input { margin: 0 0 10px 0 !important;}
   .login-box {
     top:10%;
   }
+
  }
+
+ @media only screen and (max-width: 500px) {
+.modal-custom  .modal {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  top: 0 !important;
+ }
+}

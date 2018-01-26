@@ -1,3 +1,5 @@
+import { ChangePasswordComponent } from './../change-password/change-password.component';
+import { MzModalService } from 'ng2-materialize/dist';
 import { routerAnimation } from './../../animations/router.animation';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -22,6 +24,7 @@ export class LayoutPrincipalComponent implements OnInit {
     private svcAuth: AuthService,
     private svc: TokenService,
     private router: Router,
+    private modalService: MzModalService,
   ) { }
 
   ngOnInit() {
@@ -36,5 +39,9 @@ export class LayoutPrincipalComponent implements OnInit {
     if (isLogged === false) {
       this.router.navigate(['/']);
     }
+  }
+
+  changePassword() {
+      this.modalService.open(ChangePasswordComponent);
   }
 }

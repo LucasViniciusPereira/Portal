@@ -22,6 +22,7 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
 import { TokenService } from './shared/services/token.service';
 import { SharedModule } from './shared.module';
 import { routerAnimation } from './shared/animations/router.animation';
+import { ChangePasswordComponent } from './shared/components/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { routerAnimation } from './shared/animations/router.animation';
     NotfoundComponent,
     ForbiddenComponent,
     PreloaderComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,9 @@ import { routerAnimation } from './shared/animations/router.animation';
     SharedModule,
     AppRoutingModule,
     MaterializeModule.forRoot()
+  ],
+  entryComponents: [
+    ChangePasswordComponent
   ],
   exports: [
   ],
