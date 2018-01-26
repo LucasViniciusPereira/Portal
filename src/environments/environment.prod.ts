@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  BaseUrl: 'http://api.portal.lucasvinicius.net/v2/'
+  BaseUrl: 'http://portal.api.lucasvinicius.net/v2/'
 };
