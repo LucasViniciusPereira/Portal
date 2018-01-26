@@ -16,8 +16,7 @@ import { Exception } from '../../../shared/class/exception-validation';
 import { FormBuilder } from '@angular/forms';
 import { KeyValue } from '../../../shared/class/key-value';
 import { Observable } from 'rxjs/Observable';
-import { Response } from '@angular/http/src/static_response';
-
+import { Utils } from '../../../shared/class/utils';
 
 @Component({
   selector: 'app-securekey',
@@ -28,6 +27,7 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
 
   private lstSecureKeys: Array<SecureKeyListModel> = new Array<any>();
   private filterModel = this.fb.group(new SecureKeyFilterModel(this.fb));
+  public datepickerOptions = Utils.datepickerOptions;
 
   // Model Paginator
   private pageIndex = 1;
@@ -82,7 +82,6 @@ export class SecurekeyComponent implements OnInit, OnDestroy {
   private view(item: SecureKeyListModel) {
 
     this.svcSecureKey.getSecureKey(item.KeyID).subscribe((data: SecureKeyModel) => {
-      console.log(data);
       this.modalService.open(SecurekeyDetailsComponent, { model: data });
     });
   }

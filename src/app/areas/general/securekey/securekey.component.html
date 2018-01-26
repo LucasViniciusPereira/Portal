@@ -30,14 +30,14 @@
         <form [formGroup]="filterModel" (ngSubmit)="loadData()">
           <div class="row">
             <div class="col s12">
-              <div class="input-field col s6">
+              <div class="input-field col s12 m6">
                 <input id="txtDescricao" type="text" formControlName="Description" />
                 <label for="txtDescricao">Descrição</label>
               </div>
-              <div class="col s6">
-                <mz-datepicker-container >
-                  <i mz-icon-mdi mz-input-prefix [icon]="'calendar'"></i>
-                  <input mz-datepicker formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
+              <div class="col col s12 m6">
+                <mz-datepicker-container>
+                  <i mz-input-prefix mz-icon [icon]="'date_range'"[size]="'small'"></i>
+                  <input mz-input mz-datepicker [options]="datepickerOptions" formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
                 </mz-datepicker-container>
               </div>
             </div>

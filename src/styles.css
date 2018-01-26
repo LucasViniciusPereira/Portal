@@ -5,7 +5,7 @@ footer {
   padding-left: 300px;
 }
 html {height: 100%;}
-body { 
+body {
   position: relative;
   margin: 0;
   padding-bottom: 4rem;
@@ -171,6 +171,7 @@ i.left {
 .modal-footer {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
+.md-icon-27 { font-size: 27px; }
 
 .spinner {
   border: 6px solid #f3f3f3;
@@ -187,6 +188,8 @@ i.left {
   top: 40%;
   z-index: 1;
 }
+input[mz-datepicker] { float: right; }
+
 .hidden { display: none; }
 .visible-hidden{ visibility: hidden; }
 .loading { opacity: 0.4 !important; pointer-events: none; }
