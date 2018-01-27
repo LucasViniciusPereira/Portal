@@ -32,4 +32,10 @@ export class AuthService extends TokenService {
     this.DeleteTokenUser();
     return this.getTokenUser();
   }
+
+  changePassword(params: any): Observable<any> {
+    const url = 'Account/ChangePassword';
+
+    return this.svcHttp.post(url, params);
+  }
 }

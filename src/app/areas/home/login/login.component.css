@@ -1,3 +1,6 @@
 .row { margin-bottom: 0px; }
-
 .bg-box-rigth { background: url('/assets/img/bg_login.png') no-repeat; background-size:  555px; background-position: center; }
+
+@media only screen and (max-width: 500px) {
+    /deep/ div.custom-footer { display: none !important; }
+}

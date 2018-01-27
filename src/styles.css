@@ -162,7 +162,7 @@ i.left {
 
 .modal-popup .modal {
   max-height: 60%;
-  width: 30rem;
+  width: 30%;
   top: 25% !important;
 }
 .title-modal-popup {
@@ -244,14 +244,23 @@ input { margin: 0 0 10px 0 !important;}
   .login-box {
     top:10%;
   }
-
- }
-
- @media only screen and (max-width: 500px) {
-.modal-custom  .modal {
-  width: 100% !important;
-  height: 100% !important;
-  max-height: none !important;
-  top: 0 !important;
- }
 }
+@media only screen and (max-width: 768px) {
+  .modal-popup .modal {
+    width: 60% !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .modal-popup .modal {
+    width: 100% !important;
+  }
+  .modal-custom  .modal {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: none !important;
+    top: 0 !important;
+  }
+}
+
+
