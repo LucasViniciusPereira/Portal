@@ -7,40 +7,44 @@
   <a href="#" [routerLink]="'/home/index'" class="text-green">Portal</a>
 
   <ul id="nav-mobile" class="right">
-    <li class="hide-on-small-only">
-      <a id="btn-dropdown-menu-user" href="javascript:void(0)" [ngClass]="'text-green normal'">
-        {{ user.Name }}
-        <i [class]="'right'" mz-icon [align]="'center'" [icon]="'account_circle'" [size]="'small'"></i>
-      </a>
-    </li>
-    <li class="show-on-small hide-on-med-and-down hide-on-large-only hide-on-med-only hide-on-med-and-up">
+    <li>
       <a id="btn-dropdown-demo" href="javascript:void(0)" [ngClass]="'text-green normal'">
-        <i mz-icon [icon]="'account_circle'" [size]="'small'"></i>
+        <i mz-icon [icon]="'account_circle'" style="font-size: 30px;"></i>
       </a>
     </li>
   </ul>
+
   <!-- Menu user -->
   <mz-navbar-item-container [align]="'right'">
     <mz-navbar-item>
       <!-- Dropdown user -->
-      <mz-dropdown [id]="'menu-user'" [align]="'right'" [belowOrigin]="true" [constrainWidth]="false" [dropdownButtonId]="'btn-dropdown-menu-user'"
-        [gutter]="true" [inDuration]="300" [outDuration]="300" [stopPropagation]="false">
+      <mz-dropdown [id]="'dropdown-demo'" [align]="'left'" [belowOrigin]="true" [constrainWidth]="false" [dropdownButtonId]="'btn-dropdown-demo'"
+        [gutter]="true" [inDuration]="300" [outDuration]="300" [stopPropagation]="false" class="dropdown-custom-user">
         <mz-dropdown-item>
-          <a href="javascript:void(0)" (click)="changePassword()">Alterar Senha</a>
+          <div class="row" style="background-color: #efefef; padding: 8px 0px; margin-bottom: 0px">
+            <div class="col s2" style="color: #888">
+              <i mz-icon [icon]="'account_circle'" style="font-size: 35px;"></i>
+            </div>
+            <div class="col s10 dropdown-custom-title">
+              <span style="display: block;">
+                {{ user.Name }}
+              </span>
+              <span>
+                {{ user.Email }}
+              </span>
+            </div>
+          </div>
+        </mz-dropdown-item>
+
+        <mz-dropdown-item style="margin-top: 15px">
+          <a href="javascript:void(0)" (click)="changePassword()">
+            <i mz-icon [icon]="'account_box'"></i>
+            Alterar Senha</a>
         </mz-dropdown-item>
         <mz-dropdown-item>
-            <a href="#" (click)="logout()">Sair</a>
-          </mz-dropdown-item>
-      </mz-dropdown>
-
-      <!-- Dropdown user Mobile-->
-      <mz-dropdown [id]="'dropdown-demo'" [align]="'left'" [belowOrigin]="true" [constrainWidth]="false" [dropdownButtonId]="'btn-dropdown-demo'"
-        [gutter]="true" [inDuration]="300" [outDuration]="300" [stopPropagation]="false">
-        <mz-dropdown-item>
-            <a href="javascript:void(0)" (click)="changePassword()">Alterar Senha</a>
-          </mz-dropdown-item>
-        <mz-dropdown-item>
-          <a href="#" (click)="logout()">Sair</a>
+          <a href="#" (click)="logout()">
+            <i mz-icon [icon]="'forward'"></i>
+            Sair</a>
         </mz-dropdown-item>
       </mz-dropdown>
 

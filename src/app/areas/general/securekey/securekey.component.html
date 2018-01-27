@@ -23,7 +23,8 @@
       </div>
 
       <div class="card-content">
-        <span class="card-title"><i class="fa fa-filter" aria-hidden="true"></i> Filtro</span>
+        <span class="card-title">
+          <i class="fa fa-filter" aria-hidden="true"></i> Filtro</span>
         <hr class="grey lighten-4" />
 
         <!-- Campos -->
@@ -36,8 +37,9 @@
               </div>
               <div class="col col s12 m6">
                 <mz-datepicker-container>
-                  <i mz-input-prefix mz-icon [icon]="'date_range'"[size]="'small'"></i>
-                  <input mz-input mz-datepicker [options]="datepickerOptions" formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização" type="text">
+                  <i mz-input-prefix mz-icon [icon]="'date_range'" [size]="'small'"></i>
+                  <input mz-input mz-datepicker [options]="datepickerOptions" formControlName="DateRefresh" id="txtDataAtualizacao" placeholder="Data de atualização"
+                    type="text">
                 </mz-datepicker-container>
               </div>
             </div>
@@ -53,21 +55,26 @@
 <div class="card margin-top-40" [hidden]="lstSecureKeys.length <= 0">
   <div class="card-content">
     <div [ngClass]="{ 'spinner': loading }"></div>
-    <table class="bordered highlight responsive-table" [ngClass]="{ 'loading': loading }">
+    <table class="bordered highlight" [ngClass]="{ 'loading': loading }">
       <thead>
         <tr>
           <th>Descrição</th>
-          <th>Url</th>
-          <th>Última atualização</th>
+          <th class="hide-on-small-only">Url</th>
+          <th class="hide-on-small-only">Última atualização</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of lstSecureKeys | paginate: {  id: 'pagination', itemsPerPage: pageSize, currentPage: pageIndex, totalItems: totalItems} let i = index">
           <td> {{ item.Description }} </td>
-          <td> {{ item.Url }} </td>
-          <td> {{ item.DateRefresh }}</td>
+          <td class="hide-on-small-only"> {{ item.Url }} </td>
+          <td class="hide-on-small-only"> {{ item.DateRefresh }}</td>
           <td>
+            <div class="right">
+              <a class="btn-grid-group waves-effect waves-light green-sys" [id]="'btn-dropdown' + i">
+                <i class="material-icons">more_vert</i>
+              </a>
+            </div>
             <mz-dropdown [id]="'dropdown-demo' + i" [align]="'right'" [stopPropagation]="false" [belowOrigin]="true" [constrainWidth]="false"
               [dropdownButtonId]="'btn-dropdown' + i" class='dropdown-content'>
               <mz-dropdown-item>
@@ -83,11 +90,6 @@
                   <i class="material-icons">delete</i>Excluir</a>
               </mz-dropdown-item>
             </mz-dropdown>
-            <div class="right hide-on-med-and-down">
-              <a class="btn-grid-group waves-effect waves-light green-sys" [id]="'btn-dropdown' + i">
-                <i class="material-icons">more_vert</i>
-              </a>
-            </div>
           </td>
         </tr>
       </tbody>

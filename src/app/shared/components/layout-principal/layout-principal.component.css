@@ -1,0 +1,24 @@
+/deep/ .dropdown-content#dropdown-demo {
+    width: 265px;
+    max-width: 300px;
+    color: hsl(0, 0%, 41%)
+}
+
+.dropdown-custom-title {
+    text-align: left;
+    vertical-align: middle;
+    line-height: 22px;
+    padding-top: 6px;
+}
+
+/deep/ .dropdown-content#dropdown-demo mz-dropdown-item:nth-child(2) li:first-child {
+margin-top: 10px;
+}
+
+/deep/ .dropdown-content li>a, .dropdown-content li>span {
+    color: hsl(0, 0%, 41%)
+}
+
+/deep/ .dropdown-content#dropdown-demo li {
+    min-height: 45px;
+}
