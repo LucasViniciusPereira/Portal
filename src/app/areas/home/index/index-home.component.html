@@ -4,21 +4,22 @@
   </div>
 </div>
 
+
 <div class="row">
   <div class="col 12">
     <div *ngFor="let module of modules">
       <a href="#" [routerLink]="'/'+ module.Url">
-        <div class="card card-module black-text">
-          <div class="card-image">
-            <div class="img">
-
-            </div>
-            <!-- <img src="http://cdn.lucasvinicius.net/images/background/bg_material_design.png"> -->
-            <span class="card-title">
-              <i class="material-icons">{{ module.Icon }}</i> {{ module.Name }}</span>
-          </div>
-          <div class="card-content">
-            {{ module.Description }}
+        <div class="card card-module white-text">
+          <div class="card-content center">
+            <span class="card-icon">
+              <i class="material-icons md-48">{{ module.Icon }}</i>
+            </span>
+            <strong class="card-title">
+              {{ module.Name }}
+            </strong>
+            <span class="card-description">
+              {{ module.Description }}
+            </span>
           </div>
         </div>
       </a>

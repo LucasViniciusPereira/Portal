@@ -81,9 +81,7 @@ mz-modal-content .row { margin-bottom: 0px !important;}
   bottom: 0;
   width: 100%;
 }
-.card .card-image div.img:nth-child(1){
-  background-color: #26a69a !important;
-}
+
 .custom-footer{
   text-align: center;
   padding-bottom: 12px;
